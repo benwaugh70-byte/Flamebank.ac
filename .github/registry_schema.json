@@ -1,8 +1,8 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "array",
+  "$schema": "http://json-schema.org"
+  "type": "array"
   "items": {
-    "type": "object",
+    "type": "object"
     "properties": {
       "title": {
         "type": "string"
@@ -11,25 +11,25 @@
         "type": "string"
       },
       "redirects": {
-        "type": "array",
+        "type": "array"
         "items": {
           "type": "string"
-        }
+        
       },
       "tags": {
-        "type": "array",
+        "type": "array"
         "items": {
           "type": "string"
         }
       },
       "authors": {
-        "type": "array",
+        "type": "array"
         "items": {
           "type": "string"
         }
       },
       "date": {
-        "type": "string",
+        "type": "string"
         "format": "date"
       },
       "archived": {
