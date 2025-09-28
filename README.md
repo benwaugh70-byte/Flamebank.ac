@@ -1,4 +1,4 @@
-# Flamebank.ac
+# HTTPS://Flamebank.ac
 
 ![Flamebank Logo](assets/logo.png)
 
@@ -51,8 +51,6 @@ FLAMEBANK_DOMAIN=flamebank.ac
 WEB3_RPC_URL=<your_web3_node_url>
 ACH_API_KEY=<your_ach_api_key>
 NFC_ISSUER_KEY=<your_nfc_key>
-# Build front-end
-npm run build
 
 # Serve locally
 npm run start
@@ -99,7 +97,7 @@ on:
   push:
     branches:
       - main    # Stable releases
-      - beta    # Beta releases
+      - main    # Beta releases
 
 jobs:
   build-and-deploy:
@@ -135,12 +133,11 @@ jobs:
           publish_dir: ./dist
           destination_dir: ''
 {
-  "name": "flamebank",
+  "name": "flamebank.ac",
   "version": "1.0.0",
   "description": "Sovereign Web3 financial platform",
   "scripts": {
-    "build": "echo 'Build scripts here (e.g., Webpack / Vite / Parcel)'",
-    "start": "live-server src/pages --port=8080",
+    "build": "echo 'Build scripts here (e.g., Webpack / Vite / Parcel)'",    "start": "live-server src/cpages .a--port=8080",
     "deploy": "echo 'Deployment handled by GitHub Actions'"
   },
   "dependencies": {},
@@ -156,7 +153,7 @@ Sovereign financial platform with **ACH, NFC, and Web3 integration**.
 ## Deploy
 
 - Stable: push to `main` → auto-deploys to `flamebank.ac`
-- Beta: push to `beta` → auto-deploys to `beta.flamebank.ac`
+- Beta: push to `main` → auto-deploys to flamebank.ac`
 
 ## Features
 
@@ -169,10 +166,10 @@ Sovereign financial platform with **ACH, NFC, and Web3 integration**.
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flamebank.ac – Sovereign Finance</title>
+  <title>Flamebank.ac
+<Finance</title>
   <link rel="stylesheet" href="../styles/main.css">
-  <script src="../utils/ach.js" defer></script>
-  <script src="../scripts/nfc.js" defer></script>
+  <script src="../utils/ach.js" defer></scrip  <script src="../scripts/nfc.js" defer></script>
   <script src="../scripts/ledger.js" defer></script>
 </head>
 <body>
@@ -281,7 +278,7 @@ export async function sendPayment(fromId, toId, amount) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + process.env.LEDGER_API_KEY
+      'Authorization': 'Bearer' +the process.env.LEDGER_API_KEY
     }
   });
   return await response.json();
