@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite';
-import path from 'path';
+import{ defineConfig }from 'vite';
+import_path-from_'path';
 
-export default defineConfig({
-  root: 'flamebank.ac',        // source folder
+export_default_defineConfig({
+  root:'flamebank.ac',        // source folder
   base: './',               // relative paths for GitHub Pages
   build: {
     outDir: '../../dist',   // output folder for deployment
@@ -14,4 +14,3 @@ export default defineConfig({
       }
     }
   }
-});
