@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flamebank.ac – Dashboard</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <script type="module" src="./utils/ach.js" defer></script>
+  <script type="module" src="./scripts/nfc.js" defer></script>
+  <script type="module" src="./scripts/ledger.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="./assets/logo.png" alt="Flamebank Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard-hero">
+      <h1>Welcome to Your Dashboard</h1>
+      <p>Manage your ACH transactions, NFC card, and ledger securely.</p>
+    </section>
+
+    <section id="account-overview">
+      <h2>Account Overview</h2>
+      <div class="card">
+        <p><strong>Account ID:</strong> <span id="account-id">Loading...</span></p>
+        <p><strong>ACH Balance:</strong> $<span id="ach-balance">0.00</span></p>
+        <p><strong>NFC Card Balance:</strong> $<span id="nfc-balance">0.00</span></p>
+        <button id="refresh-btn">Refresh Balances</button>
+      </div>
+    </section>
+
+    <section id="actions">
+      <h2>Actions</h2>
+      <div class="card">
+        <h3>Send ACH Payment</h3>
+        <input type="text" id="to-account" placeholder="Recipient Account ID">
+        <input type="number" id="amount" placeholder="Amount (AUD)">
+        <button id="send-payment-btn">Send Payment</button>
+      </div>
+
+      <div class="card">
+        <h3>Issue NFC Card</h3>
+        <button id="issue-card-btn">Issue Card</button>
+      </div>
+
+      <div class="card">
+        <h3>Sync Ledger</h3>
+        <button id="sync-ledger-btn">Sync Ledger</button>
+      </div>
+    </section>
+
+    <section id="activity-log">
+      <h2>Activity Log</h2>
+      <ul id="log-list">
+        <!-- Logs will populate here -->
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact & Support</h2>
+      <p>Email: support@flamebank.ac</p>
+      <p>Telegram: @flamebank_support</p>
+      <p>Phone: +61 400 000 000</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Flamebank.ac | All rights reserved under QIPL ∆Ω</p>
+  </footer>
+
+  <script type="module">
+    import { getBalance, sendPayment } from './utils/ach.js';
+    import { issueCard } from './scripts/nfc.js';
+    import { syncLedger } from './scripts/ledger.js';
+
+    const accountId = "user_123456"; // Replace dynamically in real setup
+    const accountIdEl = document.getElementById('account-id');
+    const achBalanceEl = document.getElementById('ach-balance');
+    const nfcBalanceEl = document.getElementById('nfc-balance');
+    const logList = document.getElementById('log-list');
+
+    async function refreshBalances() {
+      accountIdEl.textContent = accountId;
+      try {
+        const ach = await getBalance(accountId);
+        achBalanceEl.textContent = ach.toFixed(2);
+        // For demo, NFC balance mirrors ACH until real backend
+        const nfc = ach;
+        nfcBalanceEl.textContent = nfc.toFixed(2);
+        addLog('Balances refreshed.');
+      } catch (err) {
+        addLog('Error refreshing balances: ' + err.message);
+      }
+    }
+
+    function addLog(message) {
+      const li = document.createElement('li');
+      li.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+      logList.prepend(li);
+    }
+
+    document.getElementById('refresh-btn').addEventListener('click', refreshBalances);
+
+    document.getElementById('send-payment-btn').addEventListener('click', async () => {
+      const to = document.getElementById('to-account').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+      if (!to || isNaN(amount)) return addLog('Invalid payment details.');
+      try {
+        await sendPayment(accountId, to, amount);
+        addLog(`Sent $${amount.toFixed(2)} to ${to}`);
+        refreshBalances();
+      } catch (err) {
+        addLog('Payment failed: ' + err.message);
+      }
+    });
+
+    document.getElementById('issue-card-btn').addEventListener('click', async () => {
+      try {
+        await issueCard(accountId);
+        addLog('NFC card issued.');
+        refreshBalances();
+      } catch (err) {
+        addLog('Failed to issue card: ' + err.message);
+      }
+    });
+
+    document.getElementById('sync-ledger-btn').addEventListener('click', async () => {
+      try {
+        await syncLedger(accountId);
+        addLog('Ledger synced.');
+      } catch (err) {
+        addLog('Ledger sync failed: ' + err.message);
+      }
+    });
+
+    // Initial load
+    refreshBalances();
+  </script>
+</body>
+</html>
