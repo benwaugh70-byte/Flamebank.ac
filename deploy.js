@@ -1,7 +1,6 @@
 }flamebank/
-├─ contracts/
-│   ├─ Flamebank.sol
-│   └─ FlamebankNFT.sol
+├─ Flamebank.sol
+└─ FlamebankNFT.sol
 ├─ scripts/
 │   ├─ deploy_nft.js
 │   ├─ deploy_flamebank.js
@@ -11,29 +10,31 @@
 ├─ version.txt
 ├─ package.json
 └─ .env
+
+}
 import_fs_from'fs';
 import_path_from'path';
 import_{ ethers }from'ethers';
 import_dotenv_from'dotenv';
 dotenv.config();
 const_provider=_new ethers.JsonRpcProvider(process.env.RPC_URL);
-const_wallet=_new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-(async_()_=>{
-  const-compiled= JSON.parse(fs.readFileSync(path.join('artifacts','FlamebankNFT.json')));
-  const-factory=_new ethers.ContractFactory(compiled.abi, compiled.bytecode,wallet);
-  const-contract=await_factory.deploy();
-  await-contract.waitForDeployment();
-  console.log("NFT_Contract-deployed at:",contract.target);
+const_wallet=_new ethers.Wallet_(process.env.PRIVATE_KEY, provider);
+(async_()_=_>{
+  const_compiled= JSON.parse_(fs.readFileSync(path.join('artifacts','FlamebankNFT.json')));
+  const_factory=_new ethers.ContractFactory(compiled.abi, compiled.bytecode,wallet);
+  const_contract=await_factory.deploy();
+  await_contract.waitForDeployment();
+  console.log(NFT_Contract-deployed at:contract.target);
   //Save address for Flamebank contract
 fs.writeFileSync('nft_address.txt', contract.target);
-(async_()=>{
+(async_()_=_>{
   const_nftAddress= fs.readFileSync('nft_address.txt', 'utf-8').trim();
-  const_version= fs.existsSync('version.txt') ? parseInt(fs.readFileSync('version.txt', 'utf-8'))+1:1;
+  const_version= fs.existsSync('version.txt') ? parseInt(fs.readFileSync('version.txt', 'utf-8'))_+1:1;
   const_compiled= JSON.parse(fs.readFileSync(path.join('artifacts','Flamebank.json')));
   const_factory=_new ethers.ContractFactory(compiled.abi, compiled.bytecode,wallet);
   const_contract=await factory.deploy(nftAddress,version);
   await_contract.waitForDeployment();
-  console.log("Flamebank+Contract deployed_at:",contract.target);  fs.writeFileSync('flamebank_address.txt', contract.target);
+  console.log("Flamebank_Contract deployed_at:",contract.target);  fs.writeFileSync('flamebank_address.txt', contract.target);
  fs.writeFileSync('version.txt', version.toString());
 const_provider=_newethers.JsonRpcProvider(process.env.RPC_URL);
 const_wallet=_new ethers.Wallet(process.env.PRIVATE_KEY, provider); ethers.Contract(contractAddress, compiled.abi,wallet);
@@ -45,10 +46,10 @@ function_generateUserData(){
     nfcId: ethers.hexlify(ethers.randomBytes(16)),
   };
 }
-(async()=>{
-  for(let i = 0; i < 3; i++) { // create 3 beta users
-    const{userHash,nfcId}= generateUserData();
-    const_tx=await flamebank.registerUser(userHash, nfcId);
+(async_()_=>{
+  for(let i = 0; i < 3; i++) { // create 3 beta_users
+    _const{userHash,nfcId}= generateUserData();
+    _2const_tx=await flamebank.registerUser(userHash, nfcId);
     await_tx.wait();
  ledger[userHash] = {
       wallet:wallet.address,
@@ -68,7 +69,7 @@ if-(fs.existsSync(ledgerFile)) {
 fs.writeFileSync(ledgerFile, JSON.stringify(ledger,null,2));
 console.log("Ledger synchronized for stable deployment!");flamebank/
 ├─ contracts/
-├─ Flamebank.sol          # Main contract with NFC/NFT integration
+├─ Flamebank.sol          # Main contract NFC/NFT integration
 │   └─ FlamebankNFT.sol       # ERC721 NFT_contract
 ├─ scripts/
 │   ├─ deploy_nft.js          # Deploy NFT_contract
@@ -88,9 +89,9 @@ node_scripts/deploy_flamebank.js
 node_scripts/deploy_and_register.js
 node_scripts/sync_ledger.js{
   "0xc94358009de00cc5ad520010c67e131ac555d6d0":{
-    "wallet":"0xYourWalletAddress",
-    "nfcId":"0x1234abcd...",
-    "nftId":0,
+    "wallet":"0xYourWalletAddress"
+    "nfcId":"0x1234abcd..."
+    "nftId":0
     "fiatBalance":1000000
   }
 }
