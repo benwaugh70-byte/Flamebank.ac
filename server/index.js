@@ -85,4 +85,6 @@ app.post('/ledger/sync/:userId', async (req, res) => {
 // -------------------- Start Server --------------------
 app.listen(PORT, () => {
   console.log(`Flamebank API server running on port ${PORT}`);
-});npm install express cors dotenv node-fetch
+});
+}
+}
