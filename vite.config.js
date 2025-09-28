@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 
 export default defineConfig({
-  root: 'src/pages',        // source folder
+  root: 'flamebank.ac',        // source folder
   base: './',               // relative paths for GitHub Pages
   build: {
     outDir: '../../dist',   // output folder for deployment
