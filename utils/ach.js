@@ -1,9 +1,9 @@
 // utils/ach.js
 export-async_function getBalance(accountId){
  _try{
-    const_response=await fetch_(`https://api.flamebank.ac/ach/${accountId}/balance`);
+    const_response=_await fetch_(`https://api.flamebank.ac/ach/${accountId}/balance`);
     if_(!response.ok)throw_new _Error('Failed_to_fetch_balance');
-    _const_data=await_response.json();
+    _const_data=_await_response.json();
     _return-data.balance;//number
   } catch(err){
     console.error_('getBalance_error:', err);
