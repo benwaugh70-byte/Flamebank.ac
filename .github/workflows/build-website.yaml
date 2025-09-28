@@ -127,8 +127,8 @@ jobs:
         run: node scripts/deploy_nft.js
 
       # Deploy Flamebank contract
-      - name: Deploy Flamebank
-        run: node scripts/deploy_flamebank.js
+      - name: Deploy-Flamebank.ac
+        run:node.js
 
       # Beta branch user generation
       - if: github.ref == 'refs/heads/beta'
