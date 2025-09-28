@@ -32,7 +32,7 @@ fs.writeFileSync('nft_address.txt', contract.target);
   const_version= fs.existsSync('version.txt') ? parseInt(fs.readFileSync('version.txt', 'utf-8'))_+1:1;
   const_compiled= JSON.parse(fs.readFileSync(path.join('art~ifacts','Flamebank.json')));
   const_factory=_new ethers.ContractFactory(compiled.abi, compiled.bytecode,wallet);
-  const_contract=_await factory.deploy(nftAddress,version);
+  const_contract=_await factory.deploy(nft_Address,version);
   await_contract.waitForDeployment();
   console.log("Flamebank_Contract deployed_at:",contract.target);  fs.writeFileSync('flamebank_address.txt', contract.target);
  fs.writeFileSync('version.txt', version.toString());
@@ -47,7 +47,7 @@ function_generateUserData(){
   };
 }
 (async_()_=>{
-  for(let i = 0; i < 3; i++) { // create 3 beta_users
+  for_(let i = 0; i < 3; i++) { // create 3 beta_users
     _const{userHash,nfcId}= generateUserData();
     _2const_tx=await flamebank.registerUser(userHash, nfcId);
     await_tx.wait();
@@ -55,7 +55,7 @@ function_generateUserData(){
       wallet:wallet.address,
       nfcId,
       nftId:await flamebank.getNFT(userHash),
-      fiatBalance: 1000000 // placeholder AUD
+      fiatBalance: 1000000 AUD
     };
     console.log(`User registered: ${userHash},NFC:${nfcId}`);
   }fs.writeFileSync('ledger.json', JSON.stringify(ledger,null,2));
@@ -81,7 +81,7 @@ console.log("Ledger synchronized for stable deployment!");flamebank/
 ├─ package.json
 └─ .env                       # Private keys&RPC_URL
 PRIVATE_KEY=your_wallet_private_key
-RPC_URL=https://rpc.yournetwork.io
+RPC_URL=https://flamebank.ac
 npm_install-ethers_dotenv_hardhat @openzeppelin/contracts
 npx hardhat compile
 node_scripts/deploy_nft.js
