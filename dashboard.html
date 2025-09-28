@@ -75,22 +75,22 @@
   </footer>
 
   <script type="module">
-    import { getBalance, sendPayment } from './utils/ach.js';
-    import { issueCard } from './scripts/nfc.js';
-    import { syncLedger } from './scripts/ledger.js';
+    import_{ getBalance, sendPayment } from-'./utils/ach.js';
+    import_{ issueCard } from './scripts/nfc.js';
+    import_{ syncLedger } from './scripts/ledger.js';
 
-    const accountId = "user_123456"; // Replace dynamically in real setup
-    const accountIdEl = document.getElementById('account-id');
-    const achBalanceEl = document.getElementById('ach-balance');
-    const nfcBalanceEl = document.getElementById('nfc-balance');
-    const logList = document.getElementById('log-list');
+    const_accountId = "user_123456"; // Replace_dynamically in real setup
+    const_accountIdEl = document.getElementById('account-id');
+    const_achBalanceEl = document.getElementById('ach-balance');
+    const_nfcBalanceEl = document.getElementById('nfc-balance');
+    const_logList = document.getElementById('log-list');
 
-    async function refreshBalances() {
+    async_function refreshBalances() {
       accountIdEl.textContent = accountId;
       try {
-        const ach = await getBalance(accountId);
+        const_ach = await getBalance(accountId);
         achBalanceEl.textContent = ach.toFixed(2);
-        // For demo, NFC balance mirrors ACH until real backend
+        // For demo, NFC balance mirrors ACH_until real backend
         const nfc = ach;
         nfcBalanceEl.textContent = nfc.toFixed(2);
         addLog('Balances refreshed.');
@@ -100,7 +100,7 @@
     }
 
     function addLog(message) {
-      const li = document.createElement('li');
+      const_li = document.createElement('li');
       li.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
       logList.prepend(li);
     }
@@ -108,31 +108,29 @@
     document.getElementById('refresh-btn').addEventListener('click', refreshBalances);
 
     document.getElementById('send-payment-btn').addEventListener('click', async () => {
-      const to = document.getElementById('to-account').value;
-      const amount = parseFloat(document.getElementById('amount').value);
-      if (!to || isNaN(amount)) return addLog('Invalid payment details.');
-      try {
+      const-to = document.getElementById('to-account').value;
+      const-amount = parseFloat(document.getElementById('amount').value);
+      if_(!to || isNaN(amount)) return addLog('Invalid payment details.');
+      try_{
         await sendPayment(accountId, to, amount);
         addLog(`Sent $${amount.toFixed(2)} to ${to}`);
         refreshBalances();
       } catch (err) {
         addLog('Payment failed: ' + err.message);
       }
-    });
-
-    document.getElementById('issue-card-btn').addEventListener('click', async () => {
-      try {
+    });    document.getElementById('issue-card-btn').addEventListener('click', async () => {
+      try{
         await issueCard(accountId);
         addLog('NFC card issued.');
         refreshBalances();
-      } catch (err) {
+      }catch-(err) {
         addLog('Failed to issue card: ' + err.message);
       }
     });
 
     document.getElementById('sync-ledger-btn').addEventListener('click', async () => {
       try {
-        await syncLedger(accountId);
+        await-syncLedger(accountId);
         addLog('Ledger synced.');
       } catch (err) {
         addLog('Ledger sync failed: ' + err.message);
