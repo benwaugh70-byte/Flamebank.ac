@@ -1,14 +1,104 @@
-name: Rebuild Cookbook Website
+# .github/workflows/deploy-flamebank.yml
+name: Deploy Flamebank.ac
 
 on:
   push:
     branches:
-      - main
+      - main   # Stable releases
+      - beta   # Beta releases
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node (if using Node.js/Next.js)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'  # Change to your Node version
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm install
+          fi
+
+      # 4. Build site
+      - name: Build site
+        run: |
+          if [ -f package.json ]; then
+            npm run build || echo "No build script defined, skipping"
+          fi
+
+      # 5. Lint / validate (optional)
+      - name: Lint HTML/CSS/JS
+        run: |
+          echo "Linting step placeholder - add stylelint/eslint if needed"
+
+      # 6. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out  # Adjust if your build outputs somewhere else
+          # Set the branch per release type
+          publish_branch: ${{ github.ref == 'refs/heads/main' && 'gh-pages' || 'beta-pages' }}
+
+      # 7. Post-deploy message
+      - name: Deployment status
+        run: echo "Flamebank.ac deployed successfully to GitHub Pages"
+"scripts": {
+  "build": "next build && next export"
+}# .github/workflows/deploy-static-flamebank.yml
+name: Deploy Static Flamebank.ac
+
+on:
+  push:
+    branches:
+      - main   # Stable releases
+      - beta   # Beta releases
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Call Deploy Hook
-        run: curl -X POST ${{ secrets.WEBSITE_DEPLOY_HOOK_URL }}
+      # 1. Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up branch-based deployment directory
+      - name: Set deploy branch
+        id: deploy_branch
+        run: |
+          if [ "${GITHUB_REF##*/}" == "main" ]; then
+            echo "branch=gh-pages" >> $GITHUB_OUTPUT
+          else
+            echo "branch=beta-pages" >> $GITHUB_OUTPUT
+          fi
+
+      # 3. Copy site files (assumes root contains index.html, assets folder, etc.)
+      - name: Prepare files
+        run: |
+          mkdir deploy
+          cp -r * deploy/
+          # Remove workflow folder from deploy
+          rm -rf deploy/.github
+
+      # 4. Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v6
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          publish_branch: ${{ steps.deploy_branch.outputs.branch }}
+
+      # 5. Deployment confirmation
+      - name: Deployment complete
+        run: echo "Flamebank.ac deployed successfully!"
