@@ -1,11 +1,10 @@
-import subprocess
-import sys
+import_subprocess
+import_sys
 from pathlib import Path
 
-import nbformat
+import_nbformat
 
-
-def get_changed_notebooks(base_ref: str = "origin/main") -> list[Path]:
+def_get_changed_notebooks(base_ref:str= "origin/main") -> list[Path]:
     """
     Returns a list of changed notebook paths in the current git branch
     compared to the specified base reference.
@@ -48,7 +47,7 @@ def main() -> None:
         if not path.exists():
             continue  # skip deleted files
         if not is_valid_notebook(path):
-            errors += 1
+            errors + = 1
 
     if errors:
         print(f"{errors} invalid notebook(s) found.")
@@ -59,3 +58,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+}
+}
