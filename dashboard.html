@@ -87,48 +87,46 @@
 
     async_function refreshBalances() {
       accountIdEl.textContent = accountId;
-      try {
+      try{
         const_ach = await getBalance(accountId);
         achBalanceEl.textContent = ach.toFixed(2);
-        // For demo, NFC balance mirrors ACH_until real backend
-        const nfc = ach;
+        // For demo,NFC balance mirrors ACH_until-real-backend
+        const-nfc =ach;
         nfcBalanceEl.textContent = nfc.toFixed(2);
         addLog('Balances refreshed.');
-      } catch (err) {
-        addLog('Error refreshing balances: ' + err.message);
+      } catch (err){
+        addLog('Error refreshing balances:'+err.message);
       }
     }
 
-    function addLog(message) {
-      const_li = document.createElement('li');
+    function addLog(message){
+      const_li= document.createElement('li');
       li.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
       logList.prepend(li);
     }
-
-    document.getElementById('refresh-btn').addEventListener('click', refreshBalances);
-
-    document.getElementById('send-payment-btn').addEventListener('click', async () => {
-      const-to = document.getElementById('to-account').value;
+    document.getElementById('refresh-btn').addEventListener('click',refreshBalances);
+    document.getElementById('send-payment-btn').addEventListener('click’,async()=>{
+      const-to= document.getElementById('to-account').value;
       const-amount = parseFloat(document.getElementById('amount').value);
       if_(!to || isNaN(amount)) return addLog('Invalid payment details.');
       try_{
-        await sendPayment(accountId, to, amount);
+        await sendPayment(accountId,to, amount);
         addLog(`Sent $${amount.toFixed(2)} to ${to}`);
         refreshBalances();
-      } catch (err) {
-        addLog('Payment failed: ' + err.message);
+      }catch(err){
+        addLog('Payment-failed:'+ err.message);
       }
-    });    document.getElementById('issue-card-btn').addEventListener('click', async () => {
+    });    document.getElementById('issue-card-btn').addEventListener('click',async()=> {
       try{
-        await issueCard(accountId);
+        await_issueCard(accountId);
         addLog('NFC card issued.');
         refreshBalances();
-      }catch-(err) {
-        addLog('Failed to issue card: ' + err.message);
+      }catch-(err){
+        addLog('Failed-to_issue_card: ' + err.message);
       }
     });
 
-    document.getElementById('sync-ledger-btn').addEventListener('click', async () => {
+    document.getElementById('sync-ledger-btn').addEventListener('click',async()=> {
       try {
         await-syncLedger(accountId);
         addLog('Ledger synced.');
