@@ -1,0 +1,120 @@
+name: Deploy Flamebank Beta
+
+on:
+  push:
+    branches:
+      - beta   # Only trigger on beta branch
+
+jobs:
+  deploy-beta:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Compile Solidity contracts (Hardhat)
+      - name: Compile contracts
+        run: npx hardhat compile
+
+      # 5. Run deployment + registration script
+      - name: Deploy Flamebank and register users
+        env:
+          PRIVATE_KEY: ${{ secrets.FLAMEBANK_PRIVATE_KEY }}
+          RPC_URL: ${{ secrets.FLAMEBANK_RPC_URL }}
+        run: node scripts/deploy_and_register.js
+
+      # 6. Commit generated ledger (optional)
+      - name: Commit ledger JSON
+        run: |
+          git config --global user.name "FlamebankBot"
+          git config --global user.email "bot@flamebank.ac"
+          git add ledger.json
+          git commit -m "Update beta ledger [skip ci]" || echo "No changes to commit"
+          git push origin beta
+
+      # 7. Confirmation message
+      - name: Deployment complete
+        run: echo "Flamebank beta deployed, users registered, ledger updated!"name: Deploy Flamebank Stable
+
+on:
+  push:
+    branches:
+      - main   # Only trigger on main branch
+
+jobs:
+  deploy-stable:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Compile Solidity contracts
+      - name: Compile contracts
+        run: npx hardhat compile
+
+      # 5. Deploy updated contract
+      - name: Deploy Flamebank contract
+        env:
+          PRIVATE_KEY: ${{ secrets.FLAMEBANK_PRIVATE_KEY }}
+          RPC_URL: ${{ secrets.FLAMEBANK_RPC_URL }}
+        run: node scripts/deploy_contract_only.js
+
+      # 6. Sync off-chain ledger
+      - name: Sync ledger
+        run: node scripts/sync_ledger.js
+
+      # 7. Optional: Commit updated ledger
+      - name: Commit ledger JSON
+        run: |
+          git config --global user.name "FlamebankBot"
+          git config --global user.email "bot@flamebank.ac"
+          git add ledger.json
+          git commit -m "Update stable ledger [skip ci]" || echo "No changes to commit"
+          git push origin main
+
+      # 8. Deployment confirmation
+      - name: Deployment complete
+        run: echo "Flamebank stable deployed and ledger synchronized!"
+import fs from 'fs';
+import path from 'path';
+import { ethers } from 'ethers';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
+const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+
+const compiled = JSON.parse(fs.readFileSync(path.join('artifacts', 'Flamebank.json')));
+const { abi, bytecode } = compiled;
+
+(async () => {
+    const factory = new ethers.ContractFactory(abi, bytecode, wallet);
+    const contract = await factory.deploy();
+    await contract.waitForDeployment();
+    console.log("Stable contract deployed at:", contract.target);
+})();
