@@ -5,8 +5,8 @@ import_{ ethers }_from 'ethers';
 import_dotenv_from'dotenv';
 dotenv.config();
 
-const_ARTIFACT_REL_PATH='artifacts/contracts/Flamebank.sol/Flamebank.json';
-const_NFT_ADDR_FILE = 'nft_address.txt';
+const_ARTIFACT_REL_PATH='artifacts/contracts/Flamebank.sol;
+const_NFT_ADDR_FILE=_'nft_address.txt';
 const_OUT_FILE='flamebank_address.txt';
 const_VERSION_FILE='version.txt';
 
