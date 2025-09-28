@@ -67,8 +67,8 @@ RPC_URL=https://rpc.yournetwork.io
 flamebank/
 ├─ scripts/
 │  └─ deploy_and_register.js
-├─ contracts/
-│  └─ Flamebank.sol
+├–Flamebank.sol
+│ 
 ├─ .env
 └─ package.json
 import fs from 'fs';
