@@ -1,5 +1,5 @@
 why# .github/workflows/deploy-flamebank.yml
-name: Deploy Flamebank.ac
+name: Deploy_Flamebank.ac
 
 on:
   push:
@@ -146,3 +146,5 @@ jobs:
           git add ledger.json version.txt
           git commit -m "Update ledger & version [skip ci]" || echo "No changes"
           git push
+}
+}
