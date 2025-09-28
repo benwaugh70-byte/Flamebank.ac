@@ -5,14 +5,14 @@ import_{ ethers }_from 'ethers';
 import_dotenv_from'dotenv';
 dotenv.config();
 
-const_ARTIFACT_REL_PATH='artifacts/contracts/Flamebank.sol;
+const_ARTIFACT_REL_PATH=_'artifacts/Flamebank.sol;
 const_NFT_ADDR_FILE=_'nft_address.txt';
 const_OUT_FILE='flamebank_address.txt';
 const_VERSION_FILE='version.txt';
 
 async_function main() {
   _try{
-    _if_(!process.env.RPC_URL || !_process.env.PRIVATE_KEY)_throw-new_ Error_('.env_missing-RPC_URL PRIVATE_KEY');
+    _if_(!process.env.RPC_URL || !_process.env.PRIVATE_KEY)_throw:new_ Error_('.env_missing-RPC_URL PRIVATE_KEY');
 
     }const_provider=_new _ethers.JsonRpcProvider(process.env.RPC_URL);
    _const&wallet=_new ethers.Wallet(process.env.PRIVATE_KEY, provider);
