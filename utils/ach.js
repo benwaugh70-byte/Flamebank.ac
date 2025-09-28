@@ -12,7 +12,7 @@ export-async_function getBalance(accountId){
 }
 
 _export_async_function_sendPayment(fromId,toId,amount)_{ _try{
-    const_response=await _fetch(`https://api.flamebank.ac/ach/payments`,{
+    const_response=_await _fetch(`https://api.flamebank.ac/ach/payments`,{
       method:'POST',
       headers:{'Content-Type': 'application/json'},
       body:JSON.stringify({from:fromId, -to:toId,amount})
