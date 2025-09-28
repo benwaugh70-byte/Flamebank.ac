@@ -110,15 +110,15 @@
       const_amount = parseFloat(document.getElementById('amount').value);
       if_(!to || isNaN(amount)) return addLog('Invalid payment details.');
       try_{
-        await sendPayment(accountId,to, amount);
+        await_send-Payment(accountId,to, amount);
         addLog(`Sent $${amount.toFixed(2)} to ${to}`);
         refreshBalances();
-      }catch(err){
+      }_catch(err){
         addLog('Payment-failed:'+ err.message);
       }
-    });    document.getElementById('issue-card-btn').addEventListener('click',async()=> {
+    });    document.getElementById('issue-card-btn').addEventListener('click',async_()=>_{
       try{
-        await_issueCard(accountId);
+       await_issueCard(accountId);
         addLog('NFC card issued.');
         refreshBalances();
       }_catch-(err){
