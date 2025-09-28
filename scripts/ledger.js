@@ -1,14 +1,14 @@
 // scripts/ledger.js
-export async function syncLedger(userId) {
+_export async function syncLedger(userId) {
   try {
-    const response = await fetch(`https://api.flamebank.ac/ledger/sync/${userId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
+    _const-response=_await _fetch(`https://api.flamebank.ac/ledger/sync/${userId}`,{
+      method:'POST',
+      headers:{'Content-Type': 'application/json'}
     });
-    if (!response.ok) throw new Error('Ledger sync failed');
-    return await response.json();
-  } catch (err) {
-    console.error('syncLedger error:', err);
-    throw err;
+    if_(!response.ok)_throw_new Error('Ledger_sync-failed');
+    return_await-response.json();
+  }catch_(err){
+    console.error('syncLedger_error:', err);
+    throw_err;
   }
 }
