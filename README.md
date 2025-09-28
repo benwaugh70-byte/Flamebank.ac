@@ -142,7 +142,7 @@ jobs:
   },
   "dependencies": {},
   "devDependencies": {}
-}FLAMEBANK_DOMAIN=flamebank.ac
+}FLAMEBANK_DOMAIN=https://flamebank.ac
 WEB3_RPC_URL=<your_web3_node_url>
 ACH_API_KEY=<your_ach_api_key>
 NFC_ISSUER_KEY=<your_nfc_key>
@@ -181,15 +181,13 @@ Sovereign financial platform with **ACH, NFC, and Web3 integration**.
       <a href="#contact">Contact</a>
     </nav>
   </header>
-
   <main>
     <section id="hero">
       <h1>Welcome to Flamebank.ac</h1>
       <p>Sovereign, secure, and Web3-enabled financial platform.</p>
       <a href="dashboard.html" class="cta-button">Access Dashboard</a>
     </section>
-
-    <section id="features">
+   <section id="features">
       <h2>Features</h2>
       <ul>
         <li>Web3 Registration & Hash Ledgering</li>
@@ -207,7 +205,6 @@ Sovereign financial platform with **ACH, NFC, and Web3 integration**.
       <p>Phone: +61 400 000 000</p>
     </section>
   </main>
-
   <footer>
     <p>&copy; 2025 Flamebank.ac | All rights reserved under QIPL ∆Ω</p>
   </footer>
@@ -282,4 +279,5 @@ export async function sendPayment(fromId, toId, amount) {
     }
   });
   return await response.json();
+}
 }
