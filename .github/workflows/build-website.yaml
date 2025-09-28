@@ -1,4 +1,4 @@
-# .github/workflows/deploy-flamebank.yml
+why# .github/workflows/deploy-flamebank.yml
 name: Deploy Flamebank.ac
 
 on:
@@ -102,3 +102,47 @@ jobs:
       # 5. Deployment confirmation
       - name: Deployment complete
         run: echo "Flamebank.ac deployed successfully!"
+name: Flamebank Full Deployment
+
+on:
+  push:
+    branches:
+      - main
+      - beta
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npx hardhat compile
+
+      # Deploy NFT contract if needed
+      - name: Deploy NFT
+        run: node scripts/deploy_nft.js
+
+      # Deploy Flamebank contract
+      - name: Deploy Flamebank
+        run: node scripts/deploy_flamebank.js
+
+      # Beta branch user generation
+      - if: github.ref == 'refs/heads/beta'
+        run: node scripts/deploy_and_register.js
+
+      # Main branch ledger sync
+      - if: github.ref == 'refs/heads/main'
+        run: node scripts/sync_ledger.js
+
+      # Commit updated ledger and version info
+      - name: Commit ledger
+        run: |
+          git config --global user.name "FlamebankBot"
+          git config --global user.email "bot@flamebank.ac"
+          git add ledger.json version.txt
+          git commit -m "Update ledger & version [skip ci]" || echo "No changes"
+          git push
