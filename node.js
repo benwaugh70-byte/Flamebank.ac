@@ -61,3 +61,81 @@ async function checkNFC() {
     await linkNewNFC();
     await checkNFC();
 })();userHash -> walletAddress, NFC ID, ACH info, fiat balance
+npm install ethers dotenv
+PRIVATE_KEY=your_wallet_private_key
+RPC_URL=https://rpc.yournetwork.io
+flamebank/
+├─ scripts/
+│  └─ deploy_and_register.js
+├─ contracts/
+│  └─ Flamebank.sol
+├─ .env
+└─ package.json
+import fs from 'fs';
+import path from 'path';
+import { ethers } from 'ethers';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+// --- Setup provider and wallet ---
+const provider = new ethers.JsonRpcProvider(process.env.RPC_URL);
+const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+
+// --- Load compiled contract ABI & bytecode ---
+const compiled = JSON.parse(fs.readFileSync(path.join('artifacts', 'Flamebank.json')));
+const { abi, bytecode } = compiled;
+
+// --- Deploy Contract ---
+async function deployContract() {
+    const factory = new ethers.ContractFactory(abi, bytecode, wallet);
+    const contract = await factory.deploy();
+    await contract.waitForDeployment();
+    console.log("Contract deployed at:", contract.target);
+    return contract;
+}
+
+// --- Generate user hash & NFC ID ---
+function generateUserData() {
+    const hashBytes = ethers.randomBytes(20); // SHA1-length hash
+    const nfcBytes = ethers.randomBytes(16); // 16-byte NFC
+    return {
+        userHash: ethers.hexlify(hashBytes),
+        nfcId: ethers.hexlify(nfcBytes)
+    };
+}
+
+// --- Register user on-chain ---
+async function registerUser(contract, userHash, nfcId) {
+    const tx = await contract.registerUser(userHash, nfcId);
+    await tx.wait();
+    console.log(`User ${userHash} registered with NFC ${nfcId}`);
+}
+
+// --- Off-chain ledger integration ---
+const offChainLedger = {}; // Replace with your DB in production
+function syncLedger(userHash, walletAddress, nfcId, fiatBalance = 0) {
+    offChainLedger[userHash] = {
+        wallet: walletAddress,
+        nfcId,
+        fiatBalance
+    };
+    console.log(`Ledger synced: ${userHash}`);
+}
+
+// --- Main execution ---
+(async () => {
+    const contract = await deployContract();
+
+    // Example: create 3 beta users
+    for (let i = 0; i < 3; i++) {
+        const { userHash, nfcId } = generateUserData();
+        await registerUser(contract, userHash, nfcId);
+        syncLedger(userHash, wallet.address, nfcId, 1000000); // AUD 1,000,000 placeholder
+    }
+
+    // Save off-chain ledger to JSON for reference
+    fs.writeFileSync('ledger.json', JSON.stringify(offChainLedger, null, 2));
+    console.log("Beta users deployed and ledger saved!");
+})();npx hardhat compile
+node scripts/deploy_and_register.js
