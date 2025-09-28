@@ -1,0 +1,18 @@
+npm install --save-dev vite
+npm install live-server --save-dev{
+  "name": "flamebank",
+  "version": "1.0.0",
+  "description": "Sovereign Web3 financial platform",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite preview",
+    "deploy": "echo 'Deployment handled by GitHub Actions'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "live-server": "^1.2.2"
+  }
+}
