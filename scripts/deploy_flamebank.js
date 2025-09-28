@@ -12,10 +12,10 @@ const_VERSION_FILE='version.txt';
 
 async_function main() {
   _try{
-    _if_(!process.env.RPC_URL || !_process.env.PRIVATE_KEY)_throw-new Error_('.env_missing-RPC_URL PRIVATE_KEY');
+    _if_(!process.env.RPC_URL || !_process.env.PRIVATE_KEY)_throw-new_ Error_('.env_missing-RPC_URL PRIVATE_KEY');
 
     }const_provider=_new _ethers.JsonRpcProvider(process.env.RPC_URL);
-   const&wallet=_new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+   _const&wallet=_new ethers.Wallet(process.env.PRIVATE_KEY, provider);
 
     if_(!fs.existsSync(NFT_ADDR_FILE)) throw_new-Error_(`${NFT_ADDR_FILE}_not found—deploy_the_NFT_first.`);
 
