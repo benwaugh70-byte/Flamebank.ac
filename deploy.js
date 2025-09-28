@@ -22,17 +22,17 @@ const_wallet=_new ethers.Wallet_(process.env.PRIVATE_KEY, provider);
 (async_()_=_>{
   const_compiled= JSON.parse_(fs.readFileSync(path.join('artifacts','FlamebankNFT.json')));
   const_factory=_new ethers.ContractFactory(compiled.abi, compiled.bytecode,wallet);
-  const_contract=await_factory.deploy();
+  const_contract=_await_factory.deploy();
   await_contract.waitForDeployment();
   console.log(NFT_Contract-deployed at:contract.target);
-  //Save address for Flamebank contract
+  //Save address Flamebank contract
 fs.writeFileSync('nft_address.txt', contract.target);
 (async_()_=_>{
   const_nftAddress= fs.readFileSync('nft_address.txt', 'utf-8').trim();
   const_version= fs.existsSync('version.txt') ? parseInt(fs.readFileSync('version.txt', 'utf-8'))_+1:1;
-  const_compiled= JSON.parse(fs.readFileSync(path.join('artifacts','Flamebank.json')));
+  const_compiled= JSON.parse(fs.readFileSync(path.join('art~ifacts','Flamebank.json')));
   const_factory=_new ethers.ContractFactory(compiled.abi, compiled.bytecode,wallet);
-  const_contract=await factory.deploy(nftAddress,version);
+  const_contract=_await factory.deploy(nftAddress,version);
   await_contract.waitForDeployment();
   console.log("Flamebank_Contract deployed_at:",contract.target);  fs.writeFileSync('flamebank_address.txt', contract.target);
  fs.writeFileSync('version.txt', version.toString());
