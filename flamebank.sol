@@ -47,4 +47,66 @@ contract Flamebank {
     function getOwner(bytes20 userHash) external view returns (address) {
         return owners[userHash];
     }
+}// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.21;
+
+contract Flamebank {
+
+    struct User {
+        address wallet;
+        uint256 balance;
+        bytes32 nfcId;   // NFC-linked card ID
+    }
+
+    mapping(bytes20 => User) private users;  // user hash → User struct
+
+    event Registered(bytes20 indexed userHash, address indexed wallet, bytes32 nfcId);
+    event Deposit(bytes20 indexed userHash, uint256 amount);
+    event Withdraw(bytes20 indexed userHash, uint256 amount);
+    event NFCLinked(bytes20 indexed userHash, bytes32 nfcId);
+
+    // Register a user with optional NFC card
+    function registerUser(bytes20 userHash, bytes32 nfcId) external {
+        require(users[userHash].wallet == address(0), "User already exists");
+        users[userHash] = User(msg.sender, 0, nfcId);
+        emit Registered(userHash, msg.sender, nfcId);
+    }
+
+    // Deposit Ether
+    function deposit(bytes20 userHash) external payable {
+        require(users[userHash].wallet != address(0), "User not registered");
+        users[userHash].balance += msg.value;
+        emit Deposit(userHash, msg.value);
+    }
+
+    // Withdraw Ether
+    function withdraw(bytes20 userHash, uint256 amount) external {
+        require(users[userHash].wallet == msg.sender, "Unauthorized");
+        require(users[userHash].balance >= amount, "Insufficient funds");
+        users[userHash].balance -= amount;
+        payable(msg.sender).transfer(amount);
+        emit Withdraw(userHash, amount);
+    }
+
+    // Link/Update NFC card
+    function linkNFC(bytes20 userHash, bytes32 nfcId) external {
+        require(users[userHash].wallet == msg.sender, "Unauthorized");
+        users[userHash].nfcId = nfcId;
+        emit NFCLinked(userHash, nfcId);
+    }
+
+    // Get balance
+    function getBalance(bytes20 userHash) external view returns (uint256) {
+        return users[userHash].balance;
+    }
+
+    // Get NFC card ID
+    function getNFC(bytes20 userHash) external view returns (bytes32) {
+        return users[userHash].nfcId;
+    }
+
+    // Get owner wallet
+    function getOwner(bytes20 userHash) external view returns (address) {
+        return users[userHash].wallet;
+    }
 }
