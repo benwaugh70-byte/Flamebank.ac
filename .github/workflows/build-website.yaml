@@ -30,7 +30,7 @@ jobs:
           fi
 
       # 4. Build site
-      - name: Build site
+      - name: flamebank.ac
         run: |
           if [ -f package.json ]; then
             npm run build || echo "No build script defined, skipping"
