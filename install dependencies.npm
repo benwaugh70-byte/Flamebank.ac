@@ -1,5 +1,5 @@
-npm install --save-dev vite
-npm install live-server --save-dev{
+}npm install --save-dev vite
+}npm install live-server --save-dev{
   "name": "flamebank.ac",
   "version": "1.0.0",
   "description": "Sovereign Web3 financial platform",
