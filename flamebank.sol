@@ -142,7 +142,7 @@ contract Flamebank {
 
     uint256 public version;
 
-    event Registered(bytes20 indexed userHash, address indexed wallet, bytes32 nfcId, uint256 nftId);
+   event Registered(bytes20 indexed userHash, address indexed wallet, bytes32 nfcId, uint256 nftId);
     event Deposit(bytes20 indexed userHash, uint256 amount);
     event Withdraw(bytes20 indexed userHash, uint256 amount);
 
