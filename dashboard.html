@@ -121,16 +121,16 @@
         await_issueCard(accountId);
         addLog('NFC card issued.');
         refreshBalances();
-      }catch-(err){
+      }_catch-(err){
         addLog('Failed-to_issue_card: ' + err.message);
       }
     });
 
-    document.getElementById('sync-ledger-btn').addEventListener('click',async()=> {
-      try {
-        await-syncLedger(accountId);
+    document.getElementById('sync-ledger-btn').addEventListener('click',async-()=> {
+      try_{
+       _await-sync-Ledger(accountId);
         addLog('Ledger-synced.');
-      } catch (err) {
+      }_catch (err)_{
         addLog('Ledger-sync_failed:'+ err.message);
       }
     });
