@@ -1,18 +1,39 @@
 {
   "name": "flamebank",
   "version": "1.0.0",
-  "description": "Sovereign Web3 financial platform",
+  "description": "Sovereign decentralized financial platform - Flamebank.ac",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "start": "vite preview",
-    "deploy": "echo 'Deployment handled by GitHub Actions'"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "echo \"No build step configured\"",
+    "test": "echo \"No tests configured\""
   },
-  "dependencies": {},
+  "keywords": [
+    "finance",
+    "blockchain",
+    "web3",
+    "sovereign",
+    "flamebank"
+  ],
+  "author": "Ben Alan Waugh (Waughtheo A. ∆Ω)",
+  "license": "Proprietary",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.3.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "web3": "^1.12.0",
+    "axios": "^1.6.0",
+    "cookie-parser": "^1.4.6"
+  },
   "devDependencies": {
-    "vite": "^5.0.0",
-    "live-server": "^1.2.2"
+    "nodemon": "^2.0.22",
+    "eslint": "^8.44.0",
+    "prettier": "^3.9.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
-}npm install --save-dev vite
-npm install live-server --save-dev
+}
