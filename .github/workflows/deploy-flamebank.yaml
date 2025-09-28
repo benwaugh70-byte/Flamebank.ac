@@ -37,6 +37,18 @@ jobs:
         if: github.ref == 'refs/heads/beta'
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          destination_dir: ''
+          github_token: ${{ secrets.GITHUB_TOKEN }{
+  "name": "flamebank",
+  "version": "1.0.0",
+  "description": "Flamebank AC project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
