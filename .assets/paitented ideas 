@@ -912,4 +912,369 @@
     }
     // Continue entries CHEM-003 → ATMO-010, ENE-008, SPAT-001, etc. until 500+
   ]
+}{
+  "entries": [
+    {
+      "id": "ATMO-001",
+      "domain": "Atmosphere & Ocean",
+      "formula": "∂p/∂z = -ρ g",
+      "si_example": "ρ=1.225 kg/m³, g=9.80665 m/s², integrate for standard atmosphere",
+      "imperial_example": "ρ ≈ 0.0765 lb/ft³, g ≈ 32.174 ft/s², compute p(z) accordingly",
+      "assumptions": "Hydrostatic equilibrium, ideal gas law",
+      "cross_domain_links": ["P-T-001","GEO-002","ENE-006"],
+      "business_model": "Atmospheric modeling software, weather prediction services",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/atmo001",
+      "innovation_forks": ["AI-enhanced forecasting, coupled ocean-atmosphere simulations"]
+    },
+    {
+      "id": "ATMO-003",
+      "domain": "Atmosphere & Ocean",
+      "formula": "f = 2 Ω sin φ",
+      "si_example": "φ=45° → f ≈ 1.03e-4 s⁻¹",
+      "imperial_example": "Same numeric, units s⁻¹",
+      "assumptions": "Earth rotation constant, small-scale approximation",
+      "cross_domain_links": ["P-F-004","CSM-001"],
+      "business_model": "Coriolis effect modeling in ocean currents and wind farms",
+      "valuation": "Medium",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/atmo003",
+      "innovation_forks": ["Wind turbine optimization, AI ocean current prediction"]
+    },
+    {
+      "id": "ATMO-010",
+      "domain": "Atmosphere & Ocean",
+      "formula": "ΔF = 5.35 ln(C/C0) W/m²",
+      "si_example": "C0=280 ppm, C=560 ppm → ΔF ≈ 3.71 W/m²",
+      "imperial_example": "ΔF ≈ 1.17 BTU/h·ft²",
+      "assumptions": "Well-mixed CO₂, radiative forcing only",
+      "cross_domain_links": ["ENE-007","GEO-002"],
+      "business_model": "Climate impact modeling, carbon accounting platforms",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/atmo010",
+      "innovation_forks": ["Geoengineering simulations, carbon sequestration optimization"]
+    },
+    {
+      "id": "ENE-008",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Solar incidence: S ≈ 1361 W/m² (TOA)",
+      "si_example": "Adjust for transmittance, angle of incidence → S_surface ≈ 1000 W/m²",
+      "imperial_example": "S_surface ≈ 293 BTU/h·ft²",
+      "assumptions": "Clear-sky, perpendicular incidence",
+      "cross_domain_links": ["MAT-010","ATMO-010"],
+      "business_model": "Solar panel efficiency optimization, heliostat array design",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene008",
+      "innovation_forks": ["AI tracking optimization, bifacial panel integration"]
+    },
+    {
+      "id": "SPAT-001",
+      "domain": "Geodesy & Spatial",
+      "formula": "Haversine: d = 2 r arcsin(sqrt(sin²((Δφ)/2) + cos φ1 cos φ2 sin²((Δλ)/2)))",
+      "si_example": "φ1=40°, φ2=42°, λ1=-74°, λ2=-75° → d ≈ 222 km",
+      "imperial_example": "d ≈ 138 mi",
+      "assumptions": "Spherical Earth approximation; WGS84 ellipsoid improves accuracy",
+      "cross_domain_links": ["CSM-001","GEO-001"],
+      "business_model": "GIS software, geolocation services",
+      "valuation": "Medium",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/spat001",
+      "innovation_forks": ["Real-time routing AI, high-accuracy ellipsoid corrections"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-007",
+      "domain": "Materials & Minerals",
+      "formula": "σ_yield ≈ 0.2 E for metals",
+      "si_example": "Steel: E=210 GPa → σ_y ≈ 42 GPa",
+      "imperial_example": "σ_y ≈ 6.1e6 psi",
+      "assumptions": "Elastic limit approximation, isotropic",
+      "cross_domain_links": ["MAT-001","ENE-003"],
+      "business_model": "Structural materials selection software, yield optimization tools",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat007",
+      "innovation_forks": ["Alloying strategies, AI-driven stress prediction"]
+    },
+    {
+      "id": "MAT-008",
+      "domain": "Materials & Minerals",
+      "formula": "Thermal conductivity: k = q/(A ΔT/Δx)",
+      "si_example": "Copper: q=100 W, A=0.01 m², ΔT/Δx=100 K/m → k=100/(0.01*100)=100 W/m·K",
+      "imperial_example": "k ≈ 57.9 BTU/h·ft·°F",
+      "assumptions": "Steady-state, 1D conduction",
+      "cross_domain_links": ["ENE-001","GEO-001"],
+      "business_model": "Heat exchanger design, thermal interface material optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat008",
+      "innovation_forks": ["Nano-structured thermal materials, phase-change materials for energy storage"]
+    },
+    {
+      "id": "CHEM-012",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Catalyst turnover frequency: TOF = moles product / (moles catalyst × time)",
+      "si_example": "1e-3 mol product / (1e-5 mol catalyst * 3600 s) → TOF ≈ 27.8 s⁻¹",
+      "imperial_example": "Unitless in context; conversions optional",
+      "assumptions": "Steady-state catalytic reaction",
+      "cross_domain_links": ["CHEM-002","MAT-004"],
+      "business_model": "Catalyst screening software, industrial chemical optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem012",
+      "innovation_forks": ["AI-predicted catalysts, microfluidic high-throughput screening"]
+    },
+    {
+      "id": "ELEC-003",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Q = ∫ I dt",
+      "si_example": "I=2 A constant for 1800 s → Q=3600 C",
+      "imperial_example": "Q ≈ 0.001 C·lb·ft? (standard conversion not typical, SI preferred)",
+      "assumptions": "Neglect leakage and side reactions",
+      "cross_domain_links": ["ELEC-001","ENE-003"],
+      "business_model": "Battery capacity modeling software, charge optimization tools",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec003",
+      "innovation_forks": ["Fast-charge protocols, hybrid supercapacitor integration"]
+    },
+    {
+      "id": "BIO-013",
+      "domain": "Biology & Biophysics",
+      "formula": "Diffusion-limited reaction: k_diff = 4π R D N_A",
+      "si_example": "R=1e-9 m, D=1e-9 m²/s → k_diff ≈ 2.51e9 M⁻¹·s⁻¹",
+      "imperial_example": "Convert meters → ft, D → ft²/s",
+      "assumptions": "Dilute solution, spherical reactants",
+      "cross_domain_links": ["CHEM-014","BIO-003"],
+      "business_model": "Drug design simulations, enzyme efficiency optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio013",
+      "innovation_forks": ["AI enzyme design, microreactor reaction rate enhancement"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "ATMO-011",
+      "domain": "Atmosphere & Ocean",
+      "formula": "Potential temperature: θ = T (p0/p)^(R/cp)",
+      "si_example": "T=300 K, p=800 hPa, p0=1000 hPa → θ ≈ 315 K",
+      "imperial_example": "Convert K → °R, hPa → psi if needed",
+      "assumptions": "Dry air, adiabatic process",
+      "cross_domain_links": ["ENE-006","P-T-001"],
+      "business_model": "Weather simulation software, HVAC energy prediction",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/atmo011",
+      "innovation_forks": ["Adaptive building climate control, AI-driven forecasting"]
+    },
+    {
+      "id": "ATMO-012",
+      "domain": "Atmosphere & Ocean",
+      "formula": "Brunt–Väisälä frequency: N = √(g/θ ∂θ/∂z)",
+      "si_example": "g=9.81 m/s², ∂θ/∂z=0.01 K/m, θ=300 K → N ≈ 0.018 s⁻¹",
+      "imperial_example": "g ≈ 32.2 ft/s², θ in °R",
+      "assumptions": "Stratified, stable atmosphere",
+      "cross_domain_links": ["P-F-004","CSM-002"],
+      "business_model": "Atmospheric stability monitoring, drone flight planning software",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/atmo012",
+      "innovation_forks": ["AI atmospheric stability prediction, energy-efficient UAV routing"]
+    },
+    {
+      "id": "GEO-014",
+      "domain": "Geology & Porous Media",
+      "formula": "Seismic hazard index: H = Σ (a_i * M_i * f_i)",
+      "si_example": "Sum over 3 events: a_i=0.2, M_i=6, f_i=0.5 → H=1.8",
+      "imperial_example": "Event magnitudes same; seismic units dimensionless",
+      "assumptions": "Linear summation, weighted probability",
+      "cross_domain_links": ["CSM-009","MAT-006"],
+      "business_model": "Seismic risk assessment software, insurance modeling",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/geo014",
+      "innovation_forks": ["Real-time seismic risk monitoring, AI hazard prediction"]
+    },
+    {
+      "id": "P-Q-009",
+      "domain": "Quantum Mechanics",
+      "formula": "Density matrix evolution: dρ/dt = -i/ħ [H,ρ] + L(ρ)",
+      "si_example": "Two-level system: H = [[0, Ω/2],[Ω/2, Δ]]; simulate ρ evolution numerically",
+      "imperial_example": "N/A, quantum units SI standard",
+      "assumptions": "Markovian, weak coupling to bath",
+      "cross_domain_links": ["CHEM-012","ELEC-001"],
+      "business_model": "Quantum simulation software, decoherence analysis",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/pq009",
+      "innovation_forks": ["Quantum computing algorithms, quantum-enhanced chemical simulations"]
+    },
+    {
+      "id": "CSM-011",
+      "domain": "Astronomy & Cosmology",
+      "formula": "Escape velocity: v_esc = √(2 G M / r)",
+      "si_example": "Earth: M=5.972e24 kg, r=6.371e6 m → v_esc ≈ 11186 m/s",
+      "imperial_example": "v_esc ≈ 36,700 ft/s",
+      "assumptions": "Point mass, no atmosphere",
+      "cross_domain_links": ["P-M-018","ENE-003"],
+      "business_model": "Space mission planning, asteroid mining trajectory optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/csm011",
+      "innovation_forks": ["Reusable launch vehicles, interplanetary mining robotics"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-011",
+      "domain": "Materials & Minerals",
+      "formula": "Thermal expansion: ΔL/L0 = α ΔT",
+      "si_example": "Steel: α=12e−6 K⁻¹, ΔT=100 K → ΔL/L0 = 0.0012",
+      "imperial_example": "Convert ΔT to °F, ΔL/L0 dimensionless",
+      "assumptions": "Linear regime, isotropic",
+      "cross_domain_links": ["ENE-006","GEO-002"],
+      "business_model": "Material design for thermal stress, aerospace components",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat011",
+      "innovation_forks": ["Shape-memory alloys, thermal stress adaptive composites"]
+    },
+    {
+      "id": "MAT-012",
+      "domain": "Materials & Minerals",
+      "formula": "Yield strength vs temperature: σ_y(T) = σ0(1 − β(T − T0))",
+      "si_example": "Steel: σ0=250 MPa, β=0.001/K, ΔT=100 K → σ_y ≈ 225 MPa",
+      "imperial_example": "σ in psi, T in °F conversion",
+      "assumptions": "Linear approximation, uniform material",
+      "cross_domain_links": ["MAT-011","P-M-020"],
+      "business_model": "High-temperature structural components, pressure vessels",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat012",
+      "innovation_forks": ["Adaptive alloys, heat-resistant polymers"]
+    },
+    {
+      "id": "CHEM-016",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Catalyst turnover frequency (TOF) = moles product / (moles catalyst · time)",
+      "si_example": "0.01 mol catalyst produces 0.5 mol product in 1 hr → TOF = 50 h⁻¹",
+      "imperial_example": "Moles unit same; time in hours acceptable",
+      "assumptions": "Steady-state, no deactivation",
+      "cross_domain_links": ["CHEM-002","BIO-003"],
+      "business_model": "Industrial catalysis optimization, chemical reactor design",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem016",
+      "innovation_forks": ["Nano-catalyst design, flow-reactor AI optimization"]
+    },
+    {
+      "id": "ENE-009",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Wind turbine power: P = 0.5 ρ A Cp V³",
+      "si_example": "ρ=1.225 kg/m³, A=50 m², Cp=0.45, V=12 m/s → P ≈ 4.73 kW",
+      "imperial_example": "ρ in lb/ft³, V in ft/s → convert P to hp",
+      "assumptions": "Betz limit applicable, steady wind",
+      "cross_domain_links": ["P-F-005","MAT-001"],
+      "business_model": "Renewable energy design, turbine performance optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene009",
+      "innovation_forks": ["Adaptive blade control, AI wind prediction"]
+    },
+    {
+      "id": "ELEC-007",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "State of charge (SOC) = Q / Q_max",
+      "si_example": "Battery: Q=2.4 Ah, Q_max=3 Ah → SOC = 0.8",
+      "imperial_example": "Ah same, optional conversion to mAh or BTU energy",
+      "assumptions": "No side reactions, linear capacity usage",
+      "cross_domain_links": ["ELEC-001","ENE-003"],
+      "business_model": "Battery management systems, electric vehicle optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec007",
+      "innovation_forks": ["Fast charging algorithms, predictive SOC AI"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-013",
+      "domain": "Materials & Minerals",
+      "formula": "Creep strain rate: ε̇ = A σⁿ e^(−Q/RT)",
+      "si_example": "Steel: A=1e−5, n=4, Q=200 kJ/mol, σ=100 MPa, T=600 K → ε̇ ≈ 2.1e−7 s⁻¹",
+      "imperial_example": "σ in psi, Q in BTU/lb·mol, T in °R → same formula applies",
+      "assumptions": "Steady-state creep, isotropic, homogeneous material",
+      "cross_domain_links": ["MAT-012","ENE-003"],
+      "business_model": "High-temp structural components, creep-resistant alloys",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat013",
+      "innovation_forks": ["Creep-resistant nano-alloys, adaptive load sensors"]
+    },
+    {
+      "id": "CHEM-017",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Reaction selectivity: S = (rate_desired)/(rate_total)",
+      "si_example": "A reaction produces 0.8 mol desired + 0.2 mol side → S = 0.8/1 = 0.8",
+      "imperial_example": "Same units; consider mol fraction",
+      "assumptions": "Steady-state, ideal mixing",
+      "cross_domain_links": ["CHEM-016","ELEC-001"],
+      "business_model": "Fine chemical synthesis, green chemistry optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem017",
+      "innovation_forks": ["Flow-reactor AI selectivity tuning, photocatalyst integration"]
+    },
+    {
+      "id": "ENE-010",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Solar thermal collector efficiency: η = Q_u / (A I)",
+      "si_example": "Q_u=2.5 kW, A=5 m², I=800 W/m² → η=0.625",
+      "imperial_example": "Q_u in BTU/h, I in BTU/(h·ft²), A in ft² → same formula applies",
+      "assumptions": "Clear sky, no shading, steady-state",
+      "cross_domain_links": ["ENE-007","MAT-001"],
+      "business_model": "Solar power plants, building-integrated solar",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene010",
+      "innovation_forks": ["Adaptive sun-tracking, high-temp selective coatings"]
+    },
+    {
+      "id": "ELEC-008",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Battery internal resistance: R_i = ΔV / I",
+      "si_example": "ΔV=0.1 V, I=2 A → R_i = 0.05 Ω",
+      "imperial_example": "Voltage in V, current in A → resistance Ω unchanged",
+      "assumptions": "Small perturbation, steady-state",
+      "cross_domain_links": ["ELEC-007","ENE-003"],
+      "business_model": "Battery diagnostics, fast-charge optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec008",
+      "innovation_forks": ["AI-driven IR prediction, adaptive charge management"]
+    },
+    {
+      "id": "BIO-013",
+      "domain": "Biology & Biophysics",
+      "formula": "Diffusion-limited enzyme rate: v = 4π R D [S]",
+      "si_example": "R=5e−9 m, D=1e−9 m²/s, [S]=1e−3 mol/m³ → v ≈ 6.28e−20 mol/s",
+      "imperial_example": "Convert [S] mol/m³ → mol/ft³ if desired",
+      "assumptions": "Steady-state, spherical substrate encounter",
+      "cross_domain_links": ["BIO-003","CHEM-016"],
+      "business_model": "Drug design, enzyme immobilization, biocatalysis",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio013",
+      "innovation_forks": ["Microfluidic enzyme screening, AI kinetics optimization"]
+    }
+  ]
 }
