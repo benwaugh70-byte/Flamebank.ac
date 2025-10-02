@@ -1,0 +1,5 @@
+# macOS
+brew install pandoc
+
+# Linux (Ubuntu/Debian)
+sudo apt install pandoc
