@@ -1,0 +1,78 @@
+>~omniforge/
+├─ catalog/                # YAML index, CSV, JSON artifacts (QIPL IDs)
+│  ├─ omni_index.yml
+│  ├─ OmniCodex_200rows_detailed.csv
+│  └─ doi_metadata/
+├─ docs/
+│  ├─ doctrine.tex
+│  ├─ doctrine.pdf          # built artifact (signed)
+│  └─ LICENSE_NOTICE.md
+├─ firmware/
+│  ├─ bios/
+│  └─ uefi/
+├─ src/
+│  ├─ tools/
+│  └─ kernels/
+├─ scripts/
+│  ├─ build.sh
+│  ├─ sign_artifacts.sh
+│  └─ generate_sbom.sh
+├─ ci/                      # CI configs (GitHub Actions or GitLab)
+├─ legal/
+│  ├─ patents/
+│  └─ trademarks/
+└─ README.md~}
+}
+>SPDX-License-Identifier: Proprietary
+Copyright (c) 2025 Ben Alan Waugh (Waughtheo A. ∆Ω)
+QIPL-ID: QIPL-∆Ω-012
+QIPL-DOI: doi:10.0000/omnicodex.v0.3
+Description: [Short description]~}
+#!/usr/bin/env bash
+set -euo pipefail
+ARTIFACT=$1    # e.g., doctrine-v0.3.tar.gz
+GPG_KEY="B.A.Waugh <your-email@example.com>"
+gpg --default-key "$GPG_KEY" --armor --detach-sign --output "${ARTIFACT}.asc" "$ARTIFACT"
+sha256sum "$ARTIFACT" > "${ARTIFACT}.sha256"
+gpg --default-key "$GPG_KEY" --armor --sign --output "${ARTIFACT}.sha256.asc" "${ARTIFACT}.sha256"
+echo "Signed $ARTIFACT -> ${ARTIFACT}.asc and ${ARTIFACT}.sha256.asc"~}name: Build → SBOM → Sign → Release
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup reproducible toolchain
+        run: |
+          # pin toolchain versions here
+      - name: Build artifacts (deterministic)
+        run: ./scripts/build.sh
+      - name: Generate SBOM (CycloneDX)
+        run: ./scripts/generate_sbom.sh artifact.tar.gz > artifact.spdx
+      - name: Upload artifact (unsigned) for manual signing
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-artifact
+          path: artifact.tar.gz}
+~># sign efi executable
+sbsign --key DB.key --cert DB.crt --output shimx64.efi.signed shimx64.efi
+# verify
+sbverify --cert DB.crt shimx64.efi.signed~}pip install cyclonedx-bom
+cyclonedx-py --output-file bom.xml path/to/artifact~>}{
+  "artifact":"doctrine-v0.3.tar.gz",
+  "qipl_id":"QIPL-∆Ω-000",
+  "version":"v0.3",
+  "build_hash":"sha256:abcdef...",
+  "builder":"Ben Alan Waugh",
+  "build_date":"2025-10-02T12:00:00Z",
+  "sbom":"doctrine-v0.3-spdx.json",
+  "slsa_attestation":"attestation.json",
+  "gpg_signature":"doctrine-v0.3.tar.gz.asc"
+}# generate key (one-off)
+openssl req -new -x509 -newkey rsa:4096 -keyout kernel_key.priv -out kernel_key.pem -nodes -days 3650 -subj "/CN=Ben Waugh Kernel Key"
+# sign the module
+/usr/src/kernels/$(uname -r)/scripts/sign-file sha256 kernel_key.priv kernel_key.pem my_module.ko
+# verify
+modinfo -F signer my_module.ko
