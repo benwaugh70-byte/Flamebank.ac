@@ -1,0 +1,1 @@
+pandoc waughtheo_legacy_summary.md -o Waughtheo_Legacy_Executive_Summary.pdf --pdf-engine=xelatex
