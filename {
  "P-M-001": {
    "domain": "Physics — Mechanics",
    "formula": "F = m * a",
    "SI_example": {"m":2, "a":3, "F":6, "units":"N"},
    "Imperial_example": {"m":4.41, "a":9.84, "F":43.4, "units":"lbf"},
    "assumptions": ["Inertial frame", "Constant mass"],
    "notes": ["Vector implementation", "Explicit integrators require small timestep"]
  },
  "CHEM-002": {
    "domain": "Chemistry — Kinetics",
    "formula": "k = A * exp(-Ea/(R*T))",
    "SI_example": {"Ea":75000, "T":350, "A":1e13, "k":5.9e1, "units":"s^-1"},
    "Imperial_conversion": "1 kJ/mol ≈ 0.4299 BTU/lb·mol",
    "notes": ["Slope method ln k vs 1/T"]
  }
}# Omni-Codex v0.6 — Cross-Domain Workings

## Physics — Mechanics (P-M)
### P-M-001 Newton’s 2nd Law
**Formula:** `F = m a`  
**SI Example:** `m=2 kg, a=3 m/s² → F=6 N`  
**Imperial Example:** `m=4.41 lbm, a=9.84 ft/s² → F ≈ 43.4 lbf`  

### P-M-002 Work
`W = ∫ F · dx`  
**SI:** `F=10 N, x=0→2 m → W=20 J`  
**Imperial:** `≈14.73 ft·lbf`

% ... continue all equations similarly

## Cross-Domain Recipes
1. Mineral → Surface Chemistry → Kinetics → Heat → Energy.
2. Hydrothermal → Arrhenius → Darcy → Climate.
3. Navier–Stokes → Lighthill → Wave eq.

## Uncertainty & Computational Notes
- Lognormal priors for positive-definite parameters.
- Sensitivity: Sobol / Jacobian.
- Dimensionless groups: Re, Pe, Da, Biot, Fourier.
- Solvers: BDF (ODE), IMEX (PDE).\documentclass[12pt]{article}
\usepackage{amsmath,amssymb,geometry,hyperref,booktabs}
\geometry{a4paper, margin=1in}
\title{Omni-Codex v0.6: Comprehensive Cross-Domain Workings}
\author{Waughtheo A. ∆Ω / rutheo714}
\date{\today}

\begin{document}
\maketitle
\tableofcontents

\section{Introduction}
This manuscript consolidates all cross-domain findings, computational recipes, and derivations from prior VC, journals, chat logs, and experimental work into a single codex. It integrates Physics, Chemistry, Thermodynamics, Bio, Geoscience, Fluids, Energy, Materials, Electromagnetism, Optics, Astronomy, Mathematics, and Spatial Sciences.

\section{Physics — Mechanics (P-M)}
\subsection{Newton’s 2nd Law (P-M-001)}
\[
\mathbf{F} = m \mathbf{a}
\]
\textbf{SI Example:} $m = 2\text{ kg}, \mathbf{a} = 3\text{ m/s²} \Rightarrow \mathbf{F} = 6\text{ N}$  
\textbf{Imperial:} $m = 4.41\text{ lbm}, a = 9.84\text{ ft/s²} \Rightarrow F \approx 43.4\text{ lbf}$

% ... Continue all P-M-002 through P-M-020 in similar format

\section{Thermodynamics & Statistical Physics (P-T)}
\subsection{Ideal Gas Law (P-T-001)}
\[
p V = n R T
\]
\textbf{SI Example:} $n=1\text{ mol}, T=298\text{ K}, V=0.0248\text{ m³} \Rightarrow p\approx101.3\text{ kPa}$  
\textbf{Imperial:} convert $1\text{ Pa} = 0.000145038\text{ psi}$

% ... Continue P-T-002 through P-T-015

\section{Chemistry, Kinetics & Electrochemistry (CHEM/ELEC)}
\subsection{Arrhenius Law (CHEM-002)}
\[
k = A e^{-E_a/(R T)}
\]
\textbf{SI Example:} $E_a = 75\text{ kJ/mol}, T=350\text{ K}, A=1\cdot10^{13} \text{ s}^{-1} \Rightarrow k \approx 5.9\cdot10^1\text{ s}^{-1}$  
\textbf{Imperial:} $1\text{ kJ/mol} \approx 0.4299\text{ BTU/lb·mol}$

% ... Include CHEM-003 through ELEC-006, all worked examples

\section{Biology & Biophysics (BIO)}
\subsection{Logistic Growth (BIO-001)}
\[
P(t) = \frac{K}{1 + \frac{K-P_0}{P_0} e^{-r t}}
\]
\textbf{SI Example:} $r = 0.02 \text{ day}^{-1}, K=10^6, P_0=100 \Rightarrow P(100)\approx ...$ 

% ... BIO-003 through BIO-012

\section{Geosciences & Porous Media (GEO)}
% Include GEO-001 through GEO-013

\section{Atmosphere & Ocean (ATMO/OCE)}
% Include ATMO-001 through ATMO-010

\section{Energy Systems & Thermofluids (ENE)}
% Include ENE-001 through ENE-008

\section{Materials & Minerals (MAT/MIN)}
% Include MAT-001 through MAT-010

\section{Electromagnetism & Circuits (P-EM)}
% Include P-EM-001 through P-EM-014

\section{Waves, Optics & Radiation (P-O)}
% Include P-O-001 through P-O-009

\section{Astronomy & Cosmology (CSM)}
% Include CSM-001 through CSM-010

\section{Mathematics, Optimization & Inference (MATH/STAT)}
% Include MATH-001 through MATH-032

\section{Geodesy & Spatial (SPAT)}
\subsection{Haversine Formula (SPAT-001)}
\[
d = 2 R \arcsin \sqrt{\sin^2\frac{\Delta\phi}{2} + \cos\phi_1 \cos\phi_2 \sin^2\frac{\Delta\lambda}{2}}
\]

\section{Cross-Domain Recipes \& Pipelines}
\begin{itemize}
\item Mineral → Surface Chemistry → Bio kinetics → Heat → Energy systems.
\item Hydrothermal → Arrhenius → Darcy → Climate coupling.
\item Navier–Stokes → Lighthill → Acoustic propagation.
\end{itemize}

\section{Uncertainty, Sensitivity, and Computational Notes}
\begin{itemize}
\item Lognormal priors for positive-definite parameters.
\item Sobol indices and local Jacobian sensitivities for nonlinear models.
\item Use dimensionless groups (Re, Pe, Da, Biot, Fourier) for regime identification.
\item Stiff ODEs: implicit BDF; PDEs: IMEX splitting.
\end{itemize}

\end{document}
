@@ -1,0 +1,146 @@
+{
+  "P-M-001": {
+    "domain": "Physics — Mechanics",
+    "formula": "F = m * a",
+    "SI_example": {"m":2, "a":3, "F":6, "units":"N"},
+    "Imperial_example": {"m":4.41, "a":9.84, "F":43.4, "units":"lbf"},
+    "assumptions": ["Inertial frame", "Constant mass"],
+    "notes": ["Vector implementation", "Explicit integrators require small timestep"]
+  },
+  "CHEM-002": {
+    "domain": "Chemistry — Kinetics",
+    "formula": "k = A * exp(-Ea/(R*T))",
+    "SI_example": {"Ea":75000, "T":350, "A":1e13, "k":5.9e1, "units":"s^-1"},
+    "Imperial_conversion": "1 kJ/mol ≈ 0.4299 BTU/lb·mol",
+    "notes": ["Slope method ln k vs 1/T"]
+  }
+}# Omni-Codex v0.6 — Cross-Domain Workings
+
+## Physics — Mechanics (P-M)
+### P-M-001 Newton’s 2nd Law
+**Formula:** `F = m a`  
+**SI Example:** `m=2 kg, a=3 m/s² → F=6 N`  
+**Imperial Example:** `m=4.41 lbm, a=9.84 ft/s² → F ≈ 43.4 lbf`  
+
+### P-M-002 Work
+`W = ∫ F · dx`  
+**SI:** `F=10 N, x=0→2 m → W=20 J`  
+**Imperial:** `≈14.73 ft·lbf`
+
+% ... continue all equations similarly
+
+## Cross-Domain Recipes
+1. Mineral → Surface Chemistry → Kinetics → Heat → Energy.
+2. Hydrothermal → Arrhenius → Darcy → Climate.
+3. Navier–Stokes → Lighthill → Wave eq.
+
+## Uncertainty & Computational Notes
+- Lognormal priors for positive-definite parameters.
+- Sensitivity: Sobol / Jacobian.
+- Dimensionless groups: Re, Pe, Da, Biot, Fourier.
+- Solvers: BDF (ODE), IMEX (PDE).\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,geometry,hyperref,booktabs}
+\geometry{a4paper, margin=1in}
+\title{Omni-Codex v0.6: Comprehensive Cross-Domain Workings}
+\author{Waughtheo A. ∆Ω / rutheo714}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+This manuscript consolidates all cross-domain findings, computational recipes, and derivations from prior VC, journals, chat logs, and experimental work into a single codex. It integrates Physics, Chemistry, Thermodynamics, Bio, Geoscience, Fluids, Energy, Materials, Electromagnetism, Optics, Astronomy, Mathematics, and Spatial Sciences.
+
+\section{Physics — Mechanics (P-M)}
+\subsection{Newton’s 2nd Law (P-M-001)}
+\[
+\mathbf{F} = m \mathbf{a}
+\]
+\textbf{SI Example:} $m = 2\text{ kg}, \mathbf{a} = 3\text{ m/s²} \Rightarrow \mathbf{F} = 6\text{ N}$  
+\textbf{Imperial:} $m = 4.41\text{ lbm}, a = 9.84\text{ ft/s²} \Rightarrow F \approx 43.4\text{ lbf}$
+
+% ... Continue all P-M-002 through P-M-020 in similar format
+
+\section{Thermodynamics & Statistical Physics (P-T)}
+\subsection{Ideal Gas Law (P-T-001)}
+\[
+p V = n R T
+\]
+\textbf{SI Example:} $n=1\text{ mol}, T=298\text{ K}, V=0.0248\text{ m³} \Rightarrow p\approx101.3\text{ kPa}$  
+\textbf{Imperial:} convert $1\text{ Pa} = 0.000145038\text{ psi}$
+
+% ... Continue P-T-002 through P-T-015
+
+\section{Chemistry, Kinetics & Electrochemistry (CHEM/ELEC)}
+\subsection{Arrhenius Law (CHEM-002)}
+\[
+k = A e^{-E_a/(R T)}
+\]
+\textbf{SI Example:} $E_a = 75\text{ kJ/mol}, T=350\text{ K}, A=1\cdot10^{13} \text{ s}^{-1} \Rightarrow k \approx 5.9\cdot10^1\text{ s}^{-1}$  
+\textbf{Imperial:} $1\text{ kJ/mol} \approx 0.4299\text{ BTU/lb·mol}$
+
+% ... Include CHEM-003 through ELEC-006, all worked examples
+
+\section{Biology & Biophysics (BIO)}
+\subsection{Logistic Growth (BIO-001)}
+\[
+P(t) = \frac{K}{1 + \frac{K-P_0}{P_0} e^{-r t}}
+\]
+\textbf{SI Example:} $r = 0.02 \text{ day}^{-1}, K=10^6, P_0=100 \Rightarrow P(100)\approx ...$ 
+
+% ... BIO-003 through BIO-012
+
+\section{Geosciences & Porous Media (GEO)}
+% Include GEO-001 through GEO-013
+
+\section{Atmosphere & Ocean (ATMO/OCE)}
+% Include ATMO-001 through ATMO-010
+
+\section{Energy Systems & Thermofluids (ENE)}
+% Include ENE-001 through ENE-008
+
+\section{Materials & Minerals (MAT/MIN)}
+% Include MAT-001 through MAT-010
+
+\section{Electromagnetism & Circuits (P-EM)}
+% Include P-EM-001 through P-EM-014
+
+\section{Waves, Optics & Radiation (P-O)}
+% Include P-O-001 through P-O-009
+
+\section{Astronomy & Cosmology (CSM)}
+% Include CSM-001 through CSM-010
+
+\section{Mathematics, Optimization & Inference (MATH/STAT)}
+% Include MATH-001 through MATH-032
+
+\section{Geodesy & Spatial (SPAT)}
+\subsection{Haversine Formula (SPAT-001)}
+\[
+d = 2 R \arcsin \sqrt{\sin^2\frac{\Delta\phi}{2} + \cos\phi_1 \cos\phi_2 \sin^2\frac{\Delta\lambda}{2}}
+\]
+
+\section{Cross-Domain Recipes \& Pipelines}
+\begin{itemize}
+\item Mineral → Surface Chemistry → Bio kinetics → Heat → Energy systems.
+\item Hydrothermal → Arrhenius → Darcy → Climate coupling.
+\item Navier–Stokes → Lighthill → Acoustic propagation.
+\end{itemize}
+
+\section{Uncertainty, Sensitivity, and Computational Notes}
+\begin{itemize}
+\item Lognormal priors for positive-definite parameters.
+\item Sobol indices and local Jacobian sensitivities for nonlinear models.
+\item Use dimensionless groups (Re, Pe, Da, Biot, Fourier) for regime identification.
+\item Stiff ODEs: implicit BDF; PDEs: IMEX splitting.
+\end{itemize}
+
+\end{document}
+ID,Domain,Formula,SI_example,Imperial_example,Notes
+P-M-001,Physics,"F=m*a","m=2kg,a=3m/s² -> F=6N","m≈4.409 lb,a≈9.84 ft/s² -> F≈43.4 lbf","Vector implementation"
+CHEM-002,Chemistry,"k=A*exp(-Ea/(R*T))","Ea=75kJ/mol,T=350K -> k≈5.9e1","Ea≈32.24 BTU/lb·mol -> k≈5.9e1","Slope method ln k vs 1/T"ID,Domain,Formula,SI Example,Imperial Example,Assumptions,Notes
+P-M-001,Physics — Mechanics,"F = m a","m=2 kg, a=3 m/s² → F=6 N","m=4.41 lbm, a=9.84 ft/s² → F ≈ 43.4 lbf","Inertial frame; constant mass","Vectorial; explicit integrators small timestep"
+CHEM-002,Chemistry — Kinetics,"k = A e^{-Ea/(R*T)}","Ea=75 kJ/mol, T=350K, A=1e13 s⁻¹ → k≈5.9e1 s⁻¹","Convert Ea to BTU/lb·mol","-","Slope method: ln k vs 1/T"ID,Domain,Formula,SI Example,Imperial Example,Assumptions,Notes
+P-M-001,Physics — Mechanics,"F = m a","m=2 kg, a=3 m/s² → F=6 N","m=4.41 lbm, a=9.84 ft/s² → F ≈ 43.4 lbf","Inertial frame; constant mass","Vectorial; explicit integrators small timestep"
+CHEM-002,Chemistry — Kinetics,"k = A e^{-Ea/(R*T)}","Ea=75 kJ/mol, T=350K, A=1e13 s⁻¹ → k≈5.9e1 s⁻¹","Convert Ea to BTU/lb·mol","-","Slope method: ln k vs 1/T"
