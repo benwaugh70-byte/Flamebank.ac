@@ -1,0 +1,13 @@
+cd /path/to/flamebank.ac
+
+# Stage all existing files
+git add .
+
+# Commit everything
+git commit -m "Finalizing legacy package – all files committed $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# Create a permanent tag
+git tag -a v1.0-final-20251002 -m "Finalized canonical Waughtheo systems legacy package"
+
+# Push to remote
+git push origin main --tags
