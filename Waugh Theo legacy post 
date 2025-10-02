@@ -1,0 +1,41 @@
+# Documented Legacy & Evolution of Waughtheo Systems – Verified Record
+
+**Author / Timestamp:** Ben Alan Waugh / Waughtheo A. ∆Ω | 2025-10-02
+
+---
+
+I’ve been building the Waughtheo systems for years, evolving from early prototypes to fully deployed frameworks in simulation, analytics, and sovereign governance.
+
+This repository serves as the **canonical, timestamped record** of all legacy and retro systems:
+
+- **Visual Legacy Map** – showing system evolution from early prototypes to current active frameworks  
+- **One-Page Legacy & Retro Systems Brief** – concise summary of all major projects  
+- **JSON System Index** – SHA‑256 hashes for all files for verification  
+- **Immutable Archive Snapshots** – every auto-update saved in `archive_json/` for permanent record
+
+You can view, verify, or reference the full legacy here:  
+[**flamebank.ac GitHub Repository**](https://github.com/FlameWolx/flamebank.ac)
+
+---
+
+## SHA‑256 Proof of Current Key Files
+
+| File | SHA‑256 Hash |
+|------|--------------|
+| legacy_map.png | e3b0c44298fc1c149afbf4c8996fb924… |
+| legacy_brief.pdf | 9c1185a5c5e9fc54612808977ee8f548… |
+| systems_index.json | 2e7d2c03a9507ae265ecf5b5356885a5… |
+
+*(Replace placeholders with auto-generated hashes from your repo)*
+
+---
+
+## Purpose
+
+- Public proof of authorship and timestamped record  
+- Demonstrates system lineage, continuity, and retro development  
+- Resource for researchers, journalists, or collaborators interested in Waughtheo systems
+
+---
+
+### Suggested Tags / Hashtags
