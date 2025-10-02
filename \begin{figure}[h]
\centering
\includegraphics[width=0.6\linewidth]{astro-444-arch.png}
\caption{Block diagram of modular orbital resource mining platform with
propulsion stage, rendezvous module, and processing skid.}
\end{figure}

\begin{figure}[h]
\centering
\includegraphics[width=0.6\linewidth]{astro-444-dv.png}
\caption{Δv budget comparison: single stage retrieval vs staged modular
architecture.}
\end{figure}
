@@ -1,0 +1,75 @@
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\linewidth]{astro-444-arch.png}
+\caption{Block diagram of modular orbital resource mining platform with
+propulsion stage, rendezvous module, and processing skid.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.6\linewidth]{astro-444-dv.png}
+\caption{Δv budget comparison: single stage retrieval vs staged modular
+architecture.}
+\end{figure}
+| Electrode Surface |   o o o   (microreservoirs embedded)  
+   ↓ trigger (heat/e-field)  
+   release precursor → forms new SEI layer# SPDX-License-Identifier: Proprietary
+# Copyright (c) 2025 Ben Alan Waugh (Waughtheo A. ∆Ω)
+# QIPL-ID: QIPL-∆Ω-200-COMPENDIUM
+# Description: OmniCodex invention/business model rows, detailed version.
+Row ID,Domain,Invention / Concept,Business Model,Academic Study Outline,Journal Abstract,Valuation,Cross-Refs
+P-M-012,Physics,Hybrid Oscillator Systems,...{
+  "spdx": "SPDX-License-Identifier: Proprietary",
+  "copyright": "2025 Ben Alan Waugh (Waughtheo A. ∆Ω)",
+  "qipl_id": "QIPL-∆Ω-200-GRAPH",
+  "description": "OmniCodex JSON graph knowledge index",
+  "nodes": [
+    {"id": "P-M-012", "domain": "Physics", "concept": "Hybrid Oscillator Systems", ... }
+  ]
+}# SPDX-License-Identifier: Proprietary
+# Copyright (c) 2025 Ben Alan Waugh (Waughtheo A. ∆Ω)
+# QIPL-ID: QIPL-∆Ω-2025-COMPENDIUM-V1
+# Description: OmniCodex Volume I — 50 Invention/Concept Entries, Business Models, Academic Outlines, Journal Abstracts, Valuation Estimates
+RowID,Domain,Invention/Concept,Business Model,Academic Study Outline,Journal Abstract,Valuation (USD),Cross-Refs
+P-M-001,Physics,Hybrid Oscillator System,Licensing oscillation control tech to industrial sensors,Experimental validation of multi-mode oscillators,Journal of Applied Physics,5,000,000,P-M-012;MAT-001
+P-M-002,Physics,Adaptive SHM Dampers,Sell retrofit kits for machinery damping,Simulation of damped harmonic systems,Mechanical Systems and Signal Processing,3,500,000,P-M-011;ENE-003
+P-M-003,Physics,Gravity-Modulated Pendulum Energy Harvester,Deploy to remote sensors in low-power grid,Lab prototyping and field testing of pendulum microgenerators,Renewable Energy,4,200,000,P-M-013;ENE-007
+P-M-004,Physics,Rotational Kinetic Energy Storage Cylinder,Commercialize microgrid energy storage modules,Rotational dynamics modeling and fatigue analysis,Energy Storage Materials,6,800,000,P-M-008;MAT-004
+P-M-005,Physics,Impulse-Controlled Robotics Actuator,Industrial robotics licensing,Impulse response optimization and control algorithms,Robotics and Automation Letters,7,200,000,P-M-006;ELEC-001
+P-T-001,Thermodynamics,High-Efficiency Micro Carnot Engine,Prototype micro-heat engine kits,Efficiency benchmarking and thermal cycle analysis,International Journal of Thermodynamics,8,000,000,P-T-010;ENE-001
+P-T-002,Thermodynamics,Adaptive Van der Waals Cooler,Commercial refrigeration contracts,Non-ideal gas cooling simulations,Chemical Engineering Journal,3,700,000,P-T-002;MAT-001
+P-T-003,Thermodynamics,Heat-Feedback Energy Regenerator,Industrial heat recapture licensing,Closed-loop heat flow experiments,Applied Thermal Engineering,4,500,000,P-T-003;ENE-001
+P-T-004,Thermodynamics,Enthalpy-Powered Micro Pump,Sell pumps to lab-on-chip devices,Constant-pressure microfluidic studies,Lab on a Chip,2,900,000,P-T-004;P-F-006
+P-T-005,Thermodynamics,Helmholtz-Based Sensor Array,Sensor module licensing,Derive thermodynamic potentials for sensor calibration,Sensors and Actuators A,2,600,000,P-T-005;ELEC-003
+P-EM-001,Electromagnetism,Dynamic Gauss Flux Control,Industrial EM shielding,Finite element modeling of electric flux,IEEE Transactions on Magnetics,3,200,000,P-EM-001;MAT-001
+P-EM-002,Electromagnetism,Faraday Induction Micro-Coils,Wireless charging kit licensing,Electromagnetic induction simulations,Journal of Applied Physics,4,100,000,P-EM-003;ELEC-002
+P-EM-003,Electromagnetism,Lorentz-Force Particle Separator,Commercial lab equipment,Particle trajectory simulations in electric/magnetic fields,Separation Science and Technology,5,000,000,P-EM-005;CHEM-001
+P-EM-004,Electromagnetism,Capacitive Energy Storage Plate,Energy storage product licensing,Capacitor charge-discharge analysis,Journal of Energy Storage,3,800,000,P-EM-009;MAT-004
+P-R-001,Relativity,Lorentz-Boost Navigation Module,Deploy in precision GPS and aerospace,Relativistic correction simulations for high-speed craft,Advances in Space Research,6,400,000,P-R-001;CSM-001
+P-R-002,Relativity,Gravitational Time Dilation Clock,Time-sync licensing for satellite networks,Weak-field time dilation experimental validation,Journal of Geodesy,4,900,000,P-R-006;ATMO-001
+P-Q-001,Quantum,Crank–Nicolson Quantum Simulator,Quantum algorithm SaaS model,Numerical wavefunction evolution studies,Quantum Information Processing,7,800,000,P-Q-001;ELEC-001
+P-Q-002,Quantum,Heisenberg-Limited Metrology Sensor,High-precision sensor commercialization,Uncertainty propagation in measurement analysis,Physical Review Letters,6,600,000,P-Q-004;MAT-001
+P-F-001,Fluids,IMEX-Stable Navier–Stokes Solver,License software for CFD packages,Operator-split NS solution with LES validation,Computers & Fluids,4,300,000,P-F-002;P-O-001
+P-F-002,Fluids,Bernoulli Flow Energy Monitor,Industrial fluid flow monitoring,Velocity-pressure profile measurements in pipes,Flow Measurement and Instrumentation,3,900,000,P-F-003;ENE-003
+P-F-003,Fluids,Microchannel Reynolds Control Module,Lab-on-chip flow regulation,Re-number controlled microfluidic experimentation,Microfluidics and Nanofluidics,2,750,000,P-F-004;MAT-004
+P-F-004,Fluids,CFD-Aeroacoustic Coupler,Drone noise reduction licensing,Acoustic source computation via Lighthill tensor,AIAA Journal,5,400,000,P-F-002;P-O-001
+P-O-001,Waves,1D-CFL Stable Wave Solver,Software licensing for wave propagation modeling,Explicit and implicit wave PDE stability study,Applied Numerical Mathematics,3,600,000,P-O-001;P-F-002
+P-O-002,Waves,Diffraction-Grating Optimizer,License optical design software,Grating efficiency simulations and parametric sweeps,Optics Express,4,200,000,P-O-004;MAT-001
+CSM-001,Astronomy,Hubble-Scaled Survey Toolkit,Astronomy software licensing,Scale factor mapping with H0 calibration,Monthly Notices of the Royal Astronomical Society,6,100,000,CSM-001;P-R-001
+CSM-002,Astronomy,Friedmann Model Simulator,Academic software license,Scale factor evolution with ΛCDM parameters,Journal of Cosmology and Astroparticle Physics,5,700,000,CSM-002;MAT-004
+CSM-003,Astronomy,Tsiolkovsky Δv Planner,Space mission planning SaaS,Tsiolkovsky rocket equation simulations for staging optimization,Acta Astronautica,7,400,000,CSM-009;P-M-005
+CHEM-001,Chemistry,Log-Linear Rate Analyzer,Labs and research licensing,General rate law fitting and kinetic regression,Journal of Chemical Education,2,800,000,CHEM-001;MAT-004
+CHEM-002,Chemistry,Arrhenius Slope Evaluator,Industrial chemical reaction optimization,Activation energy estimation via slope method,Chemical Engineering Science,3,100,000,CHEM-002;ATMO-001
+CHEM-003,Chemistry,Eyring/TST Reaction Planner,Pharma research licensing,Transition state splitting into ΔH‡ and ΔS‡,Journal of Physical Chemistry A,3,900,000,CHEM-003;BIO-003
+CHEM-004,Chemistry,Equilibrium Constant Auto-Calc,Chemical database SaaS,ΔG° derivation from formation energies,Chemical Thermodynamics Letters,3,400,000,CHEM-004;ELEC-006
+CHEM-005,Chemistry,Van ’t Hoff Extrapolator,Industrial chemical process optimization,K→T mapping and temperature sensitivity,Industrial & Engineering Chemistry Research,2,900,000,CHEM-005;ATMO-010
+ELEC-001,Electrochemistry,Butler–Volmer Kinetics Analyzer,Electrochemical cell SaaS,Forward/reverse electron transfer rate modeling,Electrochimica Acta,4,800,000,ELEC-001;CHEM-002
+ELEC-002,Electrochemistry,Tafel Plot Automation,Electrochemical testing kits,Log-linear Tafel region analysis,Journal of Electroanalytical Chemistry,3,700,000,ELEC-002;ELEC-001
+ELEC-003,Electrochemistry,SEI Growth Predictor,Battery R&D SaaS,Capacity fade modeling and microstructure simulation,Battery Journal,5,200,000,ELEC-004;MAT-004
+BIO-001,Biology,Logistic Growth Predictor,Healthcare/epidemic simulation SaaS,Population growth curve modeling with r/K parameters,PLoS Computational Biology,3,100,000,BIO-001;ATMO-001
+BIO-002,Biology,Michaelis–Menten Lab Suite,Pharma licensing,Enzyme kinetics modeling with Lineweaver–Burk linearization,Biochemical Journal,3,500,000,BIO-003;CHEM-010
+BIO-003,Biology,SIR Epidemic Model,Government/public health SaaS,R0 computation and compartmental simulations,Epidemics,4,600,000,BIO-010;ATMO-001
+GEO-001,Geology,Fourier Thermal Conduction Solver,Industrial geothermal licensing,Compute heat flux using Fourier PDEs,Geothermics,3,200,000,GEO-001;MAT-004
+GEO-002,Geology,Heat Equation Temporal Mapper,Environmental monitoring SaaS,Thermal diffusivity and PDE propagation modeling,Journal of Geophysical Research,3,500,000,GEO-002;ATMO-001
+GEO-003,Geology,Hydrothermal Gradient Arrhenius Coupler,Mining & weathering R&D,Temperature gradient effects on chemical rates,Earth Surface Processes and Landforms,4,000,000,GEO-003;CHEM-002
+GEO-004,Geology,Darcy Flow Simulator,Oil & gas licensing,Permeability mapping via Darcy’s law,Transport in Porous Media,3,600,000,GEO-006;MAT-004
