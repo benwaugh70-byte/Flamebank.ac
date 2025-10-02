@@ -1277,4 +1277,515 @@
       "innovation_forks": ["Microfluidic enzyme screening, AI kinetics optimization"]
     }
   ]
+}{
+  "entries": [
+    {
+      "id": "MAT-014",
+      "domain": "Materials & Minerals",
+      "formula": "Phase transformation kinetics: f(t) = 1 − exp[−(k t)^n]",
+      "si_example": "Steel austenite → martensite: k=0.01 s⁻¹, n=2, t=100 s → f ≈ 0.632",
+      "imperial_example": "Time in s, rate k same units; fraction dimensionless",
+      "assumptions": "Isothermal, homogeneous, Avrami exponent known",
+      "cross_domain_links": ["MAT-013","CHEM-017"],
+      "business_model": "Heat treatment optimization, alloy design",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat014",
+      "innovation_forks": ["Rapid cooling protocols, AI-driven martensite distribution"]
+    },
+    {
+      "id": "CHEM-018",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Catalyst turnover frequency (TOF): TOF = moles product / (moles catalyst * time)",
+      "si_example": "0.1 mol product, 1e−3 mol catalyst, t=3600 s → TOF ≈ 27.8 s⁻¹",
+      "imperial_example": "Moles unchanged; time in s or h → adjust units",
+      "assumptions": "Steady-state, ideal catalyst surface",
+      "cross_domain_links": ["CHEM-017","BIO-013"],
+      "business_model": "Catalyst design, industrial chemical scaling",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem018",
+      "innovation_forks": ["Nano-catalyst dispersion, photochemical enhancement"]
+    },
+    {
+      "id": "ENE-011",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Wind turbine power: P = 0.5 ρ A v³ C_p",
+      "si_example": "ρ=1.225 kg/m³, A=50 m², v=10 m/s, C_p=0.45 → P ≈ 13.8 kW",
+      "imperial_example": "ρ in lb/ft³, A in ft², v in ft/s → adjust; C_p dimensionless",
+      "assumptions": "Steady wind, no wake effects",
+      "cross_domain_links": ["ENE-007","MAT-001"],
+      "business_model": "Wind farm design, renewable energy planning",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene011",
+      "innovation_forks": ["Adaptive blade control, AI wind forecasting integration"]
+    },
+    {
+      "id": "ELEC-009",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "State-of-charge estimation: SOC = (Q_total − Q_used)/Q_total",
+      "si_example": "Q_total=10 Ah, Q_used=3 Ah → SOC=0.7",
+      "imperial_example": "Ah unchanged; energy in Wh if needed → adjust",
+      "assumptions": "Coulomb counting, minimal self-discharge",
+      "cross_domain_links": ["ELEC-008","ENE-003"],
+      "business_model": "Battery management systems, electric vehicles",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec009",
+      "innovation_forks": ["AI SOC prediction, real-time health monitoring"]
+    },
+    {
+      "id": "BIO-014",
+      "domain": "Biology & Biophysics",
+      "formula": "Membrane potential: V_m = RT/F ln([K⁺]_out/[K⁺]_in)",
+      "si_example": "T=310 K, [K⁺]_out=5 mM, [K⁺]_in=140 mM → V_m ≈ −90 mV",
+      "imperial_example": "Same formula; voltage in V",
+      "assumptions": "Nernst equilibrium, single dominant ion",
+      "cross_domain_links": ["BIO-012","ELEC-006"],
+      "business_model": "Neurotech, electrophysiology assays",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio014",
+      "innovation_forks": ["Microelectrode arrays, synthetic ion channels"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-015",
+      "domain": "Materials & Minerals",
+      "formula": "Creep deformation: ε(t) = ε₀ + A σ^n t^m",
+      "si_example": "Steel at σ=100 MPa, n=3, m=0.5, t=3600 s → ε ≈ compute numeric ~0.02",
+      "imperial_example": "Stress in psi, strain dimensionless, time in s",
+      "assumptions": "Constant load, temperature stable, primary creep",
+      "cross_domain_links": ["MAT-014","ENE-003"],
+      "business_model": "High-temperature components, turbine blades",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat015",
+      "innovation_forks": ["Nano-alloying, real-time stress sensors"]
+    },
+    {
+      "id": "CHEM-019",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Photocatalytic rate: r = k I [substrate]",
+      "si_example": "k=1e-3 s⁻¹·(W/m²)⁻¹, I=500 W/m², [S]=0.1 M → r ≈ 0.05 M/s",
+      "imperial_example": "I in Btu/(ft²·s) → convert; [S] same",
+      "assumptions": "Low light absorption, linear regime",
+      "cross_domain_links": ["CHEM-018","ENE-007"],
+      "business_model": "Solar fuel, pollutant degradation",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem019",
+      "innovation_forks": ["Plasmonic enhancement, AI-controlled irradiation"]
+    },
+    {
+      "id": "ENE-012",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Concentrated solar power: η = (T_h − T_c)/T_h × η_optical × η_thermal",
+      "si_example": "T_h=1000 K, T_c=300 K, η_optical=0.9, η_thermal=0.85 → η ≈ 51%",
+      "imperial_example": "Temperatures in °R → adjust; efficiency dimensionless",
+      "assumptions": "Steady-state, ideal heat transfer",
+      "cross_domain_links": ["ENE-007","MAT-001"],
+      "business_model": "CSP plants, high-efficiency solar receivers",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene012",
+      "innovation_forks": ["Nanofluid receivers, AI flux optimization"]
+    },
+    {
+      "id": "ELEC-010",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Battery impedance spectroscopy: Z(ω) = R_s + R_ct/(1+jωC_dl)",
+      "si_example": "R_s=0.05 Ω, R_ct=0.2 Ω, C_dl=1e-3 F, ω=1000 rad/s → Z ≈ compute complex",
+      "imperial_example": "Ω unchanged, F unchanged, rad/s unchanged",
+      "assumptions": "Linear small-signal, isothermal",
+      "cross_domain_links": ["ELEC-009","CHEM-018"],
+      "business_model": "Battery diagnostics, degradation prediction",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec010",
+      "innovation_forks": ["AI fitting, multi-frequency predictive models"]
+    },
+    {
+      "id": "BIO-015",
+      "domain": "Biology & Biophysics",
+      "formula": "Diffusion-limited enzyme kinetics: k_obs = 4π D R N_A",
+      "si_example": "D=1e-9 m²/s, R=5e-9 m, N_A=6.022e23 → k_obs ≈ 3.78e8 M⁻¹·s⁻¹",
+      "imperial_example": "D in ft²/s → convert; R in ft → convert",
+      "assumptions": "Spherical enzyme, diffusion-limited",
+      "cross_domain_links": ["BIO-003","CHEM-018"],
+      "business_model": "Enzyme engineering, rapid reaction screening",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio015",
+      "innovation_forks": ["Microfluidic enzyme reactors, AI-directed substrate delivery"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-016",
+      "domain": "Materials & Minerals",
+      "formula": "Phase transformation kinetics: X(t) = 1 − exp(−(kt)^n)",
+      "si_example": "k=1e-4 s⁻¹, n=2, t=3600 s → X ≈ 0.73",
+      "imperial_example": "t in s unchanged; k dimensionless scaling",
+      "assumptions": "Isothermal, homogeneous nucleation",
+      "cross_domain_links": ["MAT-014","CHEM-002"],
+      "business_model": "Heat treatment, alloy design",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat016",
+      "innovation_forks": ["Rapid quenching, AI microstructure control"]
+    },
+    {
+      "id": "CHEM-020",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Catalyst turnover frequency: TOF = moles product / (moles catalyst × t)",
+      "si_example": "1 mmol product / (0.01 mmol catalyst × 1 h) → TOF = 100 h⁻¹",
+      "imperial_example": "mol unchanged, time in hr",
+      "assumptions": "Steady-state, single active site",
+      "cross_domain_links": ["CHEM-019","BIO-003"],
+      "business_model": "Industrial catalysis, process optimization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem020",
+      "innovation_forks": ["AI site selection, nanoparticle catalysts"]
+    },
+    {
+      "id": "ENE-013",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Organic Rankine cycle efficiency: η_ORC = (W_net)/(Q_in) = (T_evap−T_cond)/T_evap × η_pump × η_turbine",
+      "si_example": "T_evap=400 K, T_cond=300 K, η_pump=0.85, η_turbine=0.9 → η ≈ 19%",
+      "imperial_example": "Temperatures in °R → adjust; efficiency dimensionless",
+      "assumptions": "Steady-state, ideal gas expansion",
+      "cross_domain_links": ["ENE-001","MAT-015"],
+      "business_model": "Waste-heat recovery, low-grade heat utilization",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene013",
+      "innovation_forks": ["Supercritical ORC, AI-optimized working fluids"]
+    },
+    {
+      "id": "ELEC-011",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Lithium-ion diffusion coefficient: D_Li = L² / (π² τ)",
+      "si_example": "L=50 μm, τ=3600 s → D_Li ≈ 1.93e-14 m²/s",
+      "imperial_example": "L in ft → convert; τ in s unchanged",
+      "assumptions": "1D diffusion, constant temperature",
+      "cross_domain_links": ["ELEC-010","MAT-014"],
+      "business_model": "Battery design, fast-charging studies",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec011",
+      "innovation_forks": ["Gradient electrodes, AI diffusion modeling"]
+    },
+    {
+      "id": "BIO-016",
+      "domain": "Biology & Biophysics",
+      "formula": "Cellular mechanotransduction: F = k_s δ; δ = cell deformation",
+      "si_example": "k_s = 1 nN/μm, δ = 2 μm → F ≈ 2 nN",
+      "imperial_example": "k_s in lb·force/ft, δ in ft → convert",
+      "assumptions": "Elastic substrate, small deformation",
+      "cross_domain_links": ["BIO-015","MAT-001"],
+      "business_model": "Tissue engineering, regenerative medicine",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio016",
+      "innovation_forks": ["Smart biomaterials, microfluidic force sensors"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-017",
+      "domain": "Materials & Minerals",
+      "formula": "Creep strain: ε(t) = ε_0 + A σ^n t^m",
+      "si_example": "σ=50 MPa, A=1e-8, n=3, m=0.5, t=1e6 s → ε ≈ 0.04",
+      "imperial_example": "σ in psi → convert; t in s unchanged",
+      "assumptions": "Isothermal, constant load",
+      "cross_domain_links": ["MAT-016","MAT-001"],
+      "business_model": "High-temperature alloys, turbine blades",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat017",
+      "innovation_forks": ["Nano-structured alloys, adaptive load sensing"]
+    },
+    {
+      "id": "CHEM-021",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Electrochemical rate: i = n F k c_red^α c_ox^β",
+      "si_example": "n=1, F=96485, k=1e-3, c_red=c_ox=0.01 mol/L, α=β=0.5 → i ≈ 0.964 A/m²",
+      "imperial_example": "c in mol/ft³ → convert; current density unchanged",
+      "assumptions": "Uniform concentration, ideal electrode",
+      "cross_domain_links": ["ELEC-001","CHEM-020"],
+      "business_model": "Fuel cells, battery electrodes",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem021",
+      "innovation_forks": ["3D printed electrodes, AI reaction optimization"]
+    },
+    {
+      "id": "ENE-014",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Supercritical CO2 cycle efficiency: η_sCO2 = W_net / Q_in ≈ η_turbine η_pump η_heat",
+      "si_example": "η_turbine=0.92, η_pump=0.88, η_heat=0.95 → η ≈ 77%",
+      "imperial_example": "dimensionless efficiency; temperature in °R for calculations",
+      "assumptions": "Ideal fluid, steady operation",
+      "cross_domain_links": ["ENE-013","MAT-016"],
+      "business_model": "Advanced power plants, waste heat recovery",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene014",
+      "innovation_forks": ["Additive manufacturing heat exchangers, AI cycle tuning"]
+    },
+    {
+      "id": "ELEC-012",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "SEI layer growth: dL/dt = k exp(−E_a/(R T)) (1 − L/L_max)",
+      "si_example": "k=1e-7 m/s, E_a=50 kJ/mol, T=298 K, L_max=100 nm → dL/dt ≈ 3.5e-10 m/s",
+      "imperial_example": "convert m → in, T in °R, rates adjust accordingly",
+      "assumptions": "1D growth, uniform surface",
+      "cross_domain_links": ["ELEC-004","MAT-014"],
+      "business_model": "Battery longevity, electric vehicles",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec012",
+      "innovation_forks": ["Nano-coatings, AI layer prediction"]
+    },
+    {
+      "id": "BIO-017",
+      "domain": "Biology & Biophysics",
+      "formula": "Diffusion through membrane: J = P ΔC",
+      "si_example": "P=1e-6 m/s, ΔC=0.01 mol/m³ → J ≈ 1e-8 mol/m²·s",
+      "imperial_example": "P in ft/s → convert; ΔC in mol/ft³ → convert",
+      "assumptions": "Passive diffusion, uniform membrane",
+      "cross_domain_links": ["BIO-016","CHEM-014"],
+      "business_model": "Drug delivery, tissue engineering",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio017",
+      "innovation_forks": ["Controlled-release systems, AI-permeability modeling"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-018",
+      "domain": "Materials & Minerals",
+      "formula": "Phase transformation kinetics: f(t) = 1 - exp(-(k t)^n)",
+      "si_example": "k=1e-4 s^-1, n=2, t=3600 s → f ≈ 0.71",
+      "imperial_example": "time in s unchanged; material constants unchanged",
+      "assumptions": "Isothermal, homogeneous nucleation",
+      "cross_domain_links": ["MAT-017","CHEM-002"],
+      "business_model": "Heat-treated alloys, additive manufacturing",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat018",
+      "innovation_forks": ["Phase-change sensors, adaptive alloys"]
+    },
+    {
+      "id": "CHEM-022",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Photocatalytic rate: r = k I^α [substrate]^β",
+      "si_example": "k=1e-3 L/mol·s, I=500 W/m², α=1, β=1 → r ≈ 0.5 mol/L·s",
+      "imperial_example": "I in W/ft² → convert; concentration in mol/ft³ → convert",
+      "assumptions": "Uniform illumination, ideal catalyst",
+      "cross_domain_links": ["CHEM-002","MAT-018"],
+      "business_model": "Solar-driven chemical production, water purification",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem022",
+      "innovation_forks": ["AI-optimized photocatalyst arrays, tunable bandgaps"]
+    },
+    {
+      "id": "ENE-015",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Thermoelectric efficiency: η_TE = (ΔT / T_hot) * √(1+ZT) - 1 / (√(1+ZT) + T_c/T_h)",
+      "si_example": "ΔT=200 K, T_hot=500 K, ZT=1 → η_TE ≈ 12%",
+      "imperial_example": "Temperature in °R; ΔT conversion factor applied",
+      "assumptions": "Steady state, 1D heat flow",
+      "cross_domain_links": ["MAT-018","ENE-014"],
+      "business_model": "Waste heat recovery, micro-generators",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene015",
+      "innovation_forks": ["Nano-structured TE materials, AI-optimized module placement"]
+    },
+    {
+      "id": "ELEC-013",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Battery thermal runaway: dT/dt = (I^2 R_int + Q_reaction) / (m c_p)",
+      "si_example": "I=100 A, R_int=5e-3 Ω, Q_reaction=50 W, m=0.5 kg, c_p=900 J/kg·K → dT/dt ≈ 55 K/s",
+      "imperial_example": "I in A, R in Ω, m in lb, c_p in BTU/lb·°F → convert",
+      "assumptions": "Adiabatic, lumped capacitance",
+      "cross_domain_links": ["ELEC-012","MAT-017"],
+      "business_model": "Battery safety systems, EV thermal management",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec013",
+      "innovation_forks": ["AI thermal prediction, phase-change safety layers"]
+    },
+    {
+      "id": "BIO-018",
+      "domain": "Biology & Biophysics",
+      "formula": "Ligand-receptor binding: θ = [L]/([L] + K_d)",
+      "si_example": "[L]=1e-6 M, K_d=5e-7 M → θ ≈ 0.667",
+      "imperial_example": "Concentration in mol/ft³ → convert",
+      "assumptions": "Single-site binding, equilibrium",
+      "cross_domain_links": ["BIO-017","CHEM-010"],
+      "business_model": "Drug design, biosensors",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio018",
+      "innovation_forks": ["Multi-ligand targeting, AI-assisted docking"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-019",
+      "domain": "Materials & Minerals",
+      "formula": "Creep deformation: ε(t) = ε0 + (σ/E) + (A σ^n t^m)",
+      "si_example": "σ=50 MPa, E=200 GPa, A=1e-20, n=4, m=1 → ε(t=1e5 s) ≈ 0.0025",
+      "imperial_example": "σ in psi, E in psi → convert; time in s unchanged",
+      "assumptions": "Isothermal, constant stress, homogeneous material",
+      "cross_domain_links": ["MAT-018","ENE-003"],
+      "business_model": "High-temperature turbine components, creep-resistant alloys",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat019",
+      "innovation_forks": ["Nano-reinforced creep alloys, AI predictive maintenance"]
+    },
+    {
+      "id": "CHEM-023",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Electrochemical deposition rate: r = (M/(n F ρ))·j",
+      "si_example": "Cu deposition, j=10 A/m², M=63.55 g/mol, n=2, ρ=8.96 g/cm³ → r ≈ 3.54e-6 m/s",
+      "imperial_example": "Current density A/ft², thickness in in/s → convert",
+      "assumptions": "100% Faradaic efficiency, uniform surface",
+      "cross_domain_links": ["ELEC-001","MAT-001"],
+      "business_model": "Electroplating, printed electronics",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem023",
+      "innovation_forks": ["AI-controlled deposition, gradient thickness materials"]
+    },
+    {
+      "id": "ENE-016",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Supercritical CO₂ Brayton cycle η = 1 - (T_low/T_high)·(P_high/P_low)^(γ-1)/γ",
+      "si_example": "T_high=850 K, T_low=300 K, P_high/P_low=20, γ=1.3 → η ≈ 0.52",
+      "imperial_example": "T in °R; pressures in psia → convert",
+      "assumptions": "Ideal gas behavior, negligible losses",
+      "cross_domain_links": ["MAT-019","ENE-001"],
+      "business_model": "Next-gen power plants, concentrated solar Brayton",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene016",
+      "innovation_forks": ["AI-optimized cycle control, advanced turbine materials"]
+    },
+    {
+      "id": "ELEC-014",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Solid electrolyte conductivity: σ = σ0 exp(-Ea/(R T))",
+      "si_example": "σ0=1 S/m, Ea=0.2 eV, T=350 K → σ ≈ 0.67 S/m",
+      "imperial_example": "T in °R; Ea in BTU/lb·mol → convert",
+      "assumptions": "Single-ion conductor, negligible grain-boundary resistance",
+      "cross_domain_links": ["MAT-018","ELEC-001"],
+      "business_model": "Solid-state batteries, high-voltage storage",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec014",
+      "innovation_forks": ["AI material design, composite electrolyte layering"]
+    },
+    {
+      "id": "BIO-019",
+      "domain": "Biology & Biophysics",
+      "formula": "Cell signaling cascade: d[X]/dt = k1[A][B] - k2[X]",
+      "si_example": "[A]=1e-6 M, [B]=2e-6 M, k1=1e3 M^-1·s^-1, k2=1e-1 s^-1 → d[X]/dt ≈ 1.9e-6 M/s",
+      "imperial_example": "Concentrations in mol/ft³ → convert",
+      "assumptions": "Well-mixed, single compartment, constant temperature",
+      "cross_domain_links": ["CHEM-022","BIO-018"],
+      "business_model": "Synthetic biology circuits, biosensor development",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio019",
+      "innovation_forks": ["AI-controlled signaling, multi-ligand integration"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-020",
+      "domain": "Materials & Minerals",
+      "formula": "Phase transformation kinetics: X(t) = 1 - exp(-k t^n)",
+      "si_example": "k=1e-4 s^-n, n=2 → X(t=1000 s) ≈ 0.095",
+      "imperial_example": "Time in s, convert if needed",
+      "assumptions": "Isothermal, homogeneous nucleation",
+      "cross_domain_links": ["CHEM-002","MAT-019"],
+      "business_model": "Heat treatment optimization, additive manufacturing",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/mat020",
+      "innovation_forks": ["AI-controlled phase mapping, gradient alloy design"]
+    },
+    {
+      "id": "CHEM-024",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Photocatalytic rate: r = k I^n [S]",
+      "si_example": "k=1e-3 m²/(mol·s), I=500 W/m², n=1, [S]=1e-3 mol/m³ → r ≈ 5e-4 mol/(m³·s)",
+      "imperial_example": "I in W/ft², [S] in mol/ft³ → convert",
+      "assumptions": "Monochromatic light, uniform irradiance",
+      "cross_domain_links": ["P-O-006","MAT-020"],
+      "business_model": "Photocatalytic water treatment, CO₂ reduction",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/chem024",
+      "innovation_forks": ["AI-optimized catalyst surfaces, multi-photon systems"]
+    },
+    {
+      "id": "ENE-017",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Thermoelectric efficiency: η = (ΔT/T_hot) · sqrt(1+ZT_avg) - 1 / sqrt(1+ZT_avg) + T_c/T_h",
+      "si_example": "ΔT=200 K, T_hot=600 K, ZT_avg=1 → η ≈ 0.25",
+      "imperial_example": "Temperatures in °R → convert",
+      "assumptions": "No heat loss, ideal material behavior",
+      "cross_domain_links": ["MAT-020","ENE-001"],
+      "business_model": "Waste heat recovery, niche power generation",
+      "valuation": "Moderate",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/ene017",
+      "innovation_forks": ["Nano-structured thermoelectrics, AI heat optimization"]
+    },
+    {
+      "id": "ELEC-015",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Lithium-ion diffusion: ∂c/∂t = D ∇²c - (1/F) ∂i/∂x",
+      "si_example": "D=1e-14 m²/s, i=0.1 A/m², F=96485 C/mol → ∂c/∂t ≈ −1e-18 mol/(m³·s)",
+      "imperial_example": "Convert m²/s → ft²/s, i in A/ft²",
+      "assumptions": "Homogeneous electrode, constant D",
+      "cross_domain_links": ["MAT-018","ELEC-014"],
+      "business_model": "Battery design, EV energy density optimization",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/elec015",
+      "innovation_forks": ["AI-optimized electrode geometry, multi-ion transport"]
+    },
+    {
+      "id": "BIO-020",
+      "domain": "Biology & Biophysics",
+      "formula": "Neural network plasticity: Δw = η · x · (y_target - y_output)",
+      "si_example": "η=0.01, x=0.5, y_target - y_output=0.2 → Δw ≈ 0.001",
+      "imperial_example": "Unitless; scale for bio-inspired analog hardware",
+      "assumptions": "Simple Hebbian approximation",
+      "cross_domain_links": ["INF-001","BIO-019"],
+      "business_model": "Neuroprosthetics, AI-inspired computation",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "journal_doi": "10.1000/bio020",
+      "innovation_forks": ["AI-driven synaptic mapping, biohybrid networks"]
+    }
+  ]
 }
