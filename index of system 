@@ -1,0 +1,12 @@
+{
+  "systems": [
+    {"name":"Codex Experiments","era":"Early","status":"Prototype","first_seen":"2025-01-01"},
+    {"name":"HybridBladeSort v1","era":"Early","status":"Prototype","first_seen":"2025-02-15"},
+    {"name":"HybridBladeSort Full System","era":"Transitional","status":"Active","first_seen":"2025-07-18"},
+    {"name":"WØLX Supersimulation Early Layers","era":"Transitional","status":"Active","first_seen":"2025-10-01"},
+    {"name":"Recursive Spin Engine / Ultra Spore Drive / Perfect Chaos Drive","era":"Active","status":"Active","first_seen":"2025-10-02"},
+    {"name":"FlameVitals Master Codex & Web DR","era":"Active","status":"Active","first_seen":"2025-07-18"},
+    {"name":"Analytics Pipeline Full + Sovereign Chat Stack","era":"Active","status":"Active","first_seen":"2025-07-19"},
+    {"name":"Consolidated Vault + Legacy & Retro Index","era":"Consolidated","status":"Active","first_seen":"2025-10-02"}
+  ]
+}
