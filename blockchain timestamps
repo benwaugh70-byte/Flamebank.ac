@@ -1,0 +1,5 @@
+# Install OpenTimestamps CLI
+pip install opentimestamps-client
+
+# Timestamp main files
+ots stamp legacy_map.png legacy_brief.pdf systems_index.json mini_index.json
