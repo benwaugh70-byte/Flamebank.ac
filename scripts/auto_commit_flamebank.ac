@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# ===============================
+# Auto-Commit & Push Script
+# FlameBank.ac – Waughtheo Legacy
+# Author: Ben Alan Waugh / Waughtheo A. ∆Ω
+# ===============================
+
+# CONFIGURATION
+REPO_DIR="$HOME/flamebank.ac"   # <-- set this to your actual repo path
+WATCH_DIR="$REPO_DIR/new_work"  # folder for new files
+MAIN_FILES=("legacy_map.png" "legacy_brief.pdf" "systems_index.json" "README.md")
+
+# CHANGE TO REPO DIRECTORY
+cd "$REPO_DIR" || { echo "Repo directory not found"; exit 1; }
+
+# ===== Generate SHA-256 hashes =====
+echo "## File Hashes (auto-generated $(date -u))" > temp_hashes.md
+
+# Hash main files
+for f in "${MAIN_FILES[@]}"; do
+    if [ -f "$f" ]; then
+        HASH=$(sha256sum "$f" | awk '{print $1}')
+        echo "- $f : $HASH" >> temp_hashes.md
+    fi
+done
+
+# Hash files in new_work
+if [ -d "$WATCH_DIR" ]; then
+    for f in "$WATCH_DIR"/*; do
+        if [ -f "$f" ]; then
+            HASH=$(sha256sum "$f" | awk '{print $1}')
+            echo "- $(basename "$f") : $HASH" >> temp_hashes.md
+        fi
+    done
+fi
+
+# ===== Update README with hashes =====
+grep -v "## File Hashes" README.md > temp_readme.md
+cat temp_readme.md temp_hashes.md > README.md
+rm temp_readme.md temp_hashes.md
+
+# ===== Stage all changes =====
+git add .
+
+# ===== Commit with timestamp =====
+git commit -m "Auto-update: legacy & new work $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# ===== Tag commit =====
+TAG="auto-$(date -u +%Y%m%dT%H%M%SZ)"
+git tag -a "$TAG" -m "Auto tag for new work"
+
+# ===== Push changes and tags =====
+git push origin main --tags
+
+echo "Auto-commit completed: $(date -u)"
