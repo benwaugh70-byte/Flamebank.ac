@@ -1,0 +1,2 @@
+git remote add gitlab git@gitlab.com:FlameWolx/flamebank.ac.git
+git push gitlab main --tags
