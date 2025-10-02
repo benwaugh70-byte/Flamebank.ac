@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Set variables
+REPO_DIR="/path/to/flamebank.ac"
+cd $REPO_DIR
+
+# Generate hashes for all files in new_work and main files
+echo "## File Hashes (auto-generated $(date -u))" > temp_hashes.md
+for f in legacy_map.png legacy_brief.pdf systems_index.json new_work/*; do
+    if [ -f "$f" ]; then
+        HASH=$(sha256sum "$f" | awk '{print $1}')
+        echo "- $f : $HASH" >> temp_hashes.md
+    fi
+done
+
+# Append or update hashes in README
+grep -v "## File Hashes" README.md > temp_readme.md
+cat temp_readme.md temp_hashes.md > README.md
+rm temp_readme.md temp_hashes.md
+
+# Stage all changes
+git add .
+
+# Commit with timestamp
+git commit -m "Auto-update: legacy & new work $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# Optional: create auto tag
+TAG="auto-$(date -u +%Y%m%dT%H%M%SZ)"
+git tag -a $TAG -m "Auto tag for new work"
+
+# Push to remote
+git push origin main --tags
