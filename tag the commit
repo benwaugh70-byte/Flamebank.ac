@@ -1,0 +1,2 @@
+# Create a permanent tag for reference
+git tag -a v1.0-legacy-20251002 -m "Canonical legacy package of Waughtheo systems – publicly verified"
