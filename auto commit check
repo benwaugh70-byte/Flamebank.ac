@@ -1,0 +1,2 @@
+sha256sum legacy_map.png legacy_brief.pdf systems_index.json mini_index.json
+diff <computed_hashes> master_verification.txt
