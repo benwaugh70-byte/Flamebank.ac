@@ -1,0 +1,2 @@
+ipfs add -r /path/to/flamebank.ac
+# Copy the root CID for your verification record
