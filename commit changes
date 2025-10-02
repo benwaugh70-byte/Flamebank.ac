@@ -1,0 +1,2 @@
+# Commit with timestamped, authoritative message
+git commit -m "Legacy & Retro Systems Package commit – timestamp $(date -u +%Y-%m-%dT%H:%M:%SZ)"
