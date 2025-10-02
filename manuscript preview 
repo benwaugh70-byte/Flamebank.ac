@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, hyperref}
+\title{Omni-Codex v0.6: Cross-Domain Scientific Compendium}
+\author{Waughtheo A. ∆Ω / rutheo714}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Abstract}
+Complete integration of physics, chemistry, biology, geosciences, energy systems, and computational methodologies with cross-domain coupling, uncertainty quantification, and emergent findings.
+
+\section{Physics Workings}
+\subsection{Mechanics}
+\paragraph{P-M-001 Newton's 2nd Law} 
+\[
+\mathbf{F} = m \mathbf{a},\quad m=2\,\mathrm{kg},\ a=3\,\mathrm{m/s^2} \implies F=6\,\mathrm{N}
+\]
+Imperial: $m\approx4.409\,\mathrm{lbm},\ a\approx9.84\,\mathrm{ft/s^2} \implies F\approx43.4\,\mathrm{lbf}$
+
+% Continue through all domains
+
+\section{Chemistry}
+% Include CHEM-002 Arrhenius example, Eyring, equilibrium constants, etc.
+
+\section{Biology}
+% BIO-003 Michaelis-Menten, SIR models, Hodgkin-Huxley
+
+\section{Geosciences \& Spatial}
+% GEO & SPAT equations, Darcy, Haversine, Fourier
+
+\section{Cross-Domain Integrations}
+\begin{itemize}
+\item Hydrothermal-chemical-biological coupling
+\item Aeroacoustic-wave-energy integrations
+\item Multi-PDE/ODE operator splitting and stochastic sensitivity
+\end{itemize}
+
+\section{References}
+% Auto-insert PDFs/DOIs/VC/journal citations
+
+\appendix
+\section{SI \& Imperial Examples}
+% All worked numeric examples
+
+\end{document}
