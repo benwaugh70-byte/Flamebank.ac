@@ -1,0 +1,13 @@
+# Install IPFS if not already
+# macOS / Linux
+brew install ipfs || sudo apt install ipfs
+
+# Initialize IPFS repo if needed
+ipfs init
+
+# Add flamebank.ac repo to IPFS
+cd /path/to/flamebank.ac
+ipfs add -r .  # recursive add
+
+# Copy the last hash (root CID)
+# Example output: QmXyz123abc...
