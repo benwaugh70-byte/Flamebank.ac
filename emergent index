@@ -1,0 +1,57 @@
+{
+  "ID": "EMERG-001",
+  "Title": "Hydrothermal-Chemical-PDE Coupling",
+  "Equations": ["ρ c_p ∂T/∂t = k ∇²T + Q_rxn", "∂C_i/∂t = D_i ∇²C_i - R_i(T,C_i)", "k_eff(T,C_i) = k_0 (1 + β_T(T-T0)+β_C C_i)"],
+  "CrossDomainLinks": ["CHEM-002","MAT-004","GEO-006","ATMO-010","ENE-006"],
+  "Uncertainty": "Monte Carlo sampling on Ea, ΔH, k0, β",
+  "NumericalMethods": "IMEX splitting, operator-splitting PDEs, Sobol sensitivity"
+}{
+  "EMERG-001": { "Title":"Hydrothermal-Chemical-PDE Coupling", "Equations":[ "..."], "CrossDomainLinks":["CHEM-002","MAT-004","GEO-006","ATMO-010","ENE-006"], "Uncertainty":"Monte Carlo sampling", "NumericalMethods":"IMEX splitting, operator-splitting PDEs" },
+  "EMERG-002": { "Title":"Navier–Stokes → Aeroacoustic Coupling", "Equations":["..."], "CrossDomainLinks":["P-F-002","P-O-001","ATMO-010"], "Uncertainty":"LES/DNS", "NumericalMethods":"Projection method, CFL-limited" },
+  "EMERG-003": { "Title":"Stochastic Langmuir–Michaelis–Menten Coupling", "Equations":["..."], "CrossDomainLinks":["CHEM-010","BIO-003","CHEM-ΔH","ENE-006"], "Uncertainty":"Beta + Monte Carlo sampling", "NumericalMethods":"Stochastic evaluation, ensemble averaging" },
+  "EMERG-004": { "Title":"Hydrothermal → Atmospheric Coupling", "Equations":["ΔT_surface = f(Q_rxn, flux_Darcy)"], "CrossDomainLinks":["GEO-006","ATMO-010","ENE-006"], "Uncertainty":"Monte Carlo forcing", "NumericalMethods":"Operator-splitting, dimensionless scaling" }
+}/science-compendium-v0.5
+ ├─ /domains
+ │   ├─ physics
+ │   ├─ thermodynamics
+ │   ├─ chemistry
+ │   └─ ...
+ ├─ /emergent
+ │   ├─ EMERG-001_Hydrothermal
+ │   ├─ EMERG-002_Aeroacoustics
+ │   └─ ...
+ ├─ /codex_logs
+ │   ├─ chat_20251002_05:32.json
+ │   ├─ chat_20251001_21:00.json
+ │   └─ ...
+ ├─ master_index.csv
+ ├─ master_index.json
+ └─ manuscript.md
+/science-compendium-v0.6
+ ├─ /domains
+ │   ├─ physics
+ │   ├─ chemistry
+ │   ├─ biology
+ │   ├─ geosciences
+ │   └─ ...
+ ├─ /emergent
+ │   ├─ EMERG-001_Hydrothermal
+ │   ├─ EMERG-002_Aeroacoustics
+ │   └─ ...
+ ├─ /vc_journals
+ │   ├─ vc_notes.json
+ │   ├─ journals.json
+ │   └─ ...
+ ├─ /codex_logs
+ │   ├─ chat_*.json
+ │   └─ ...
+ ├─ master_index.csv
+ ├─ master_index.json
+ ├─ manuscript.md
+ └─ manuscript.tex
+P-M-001 | Physics | F=ma | m=2kg,a=3m/s² → F=6N | m≈4.409 lb,a≈9.84 ft/s² → F≈43.4 lbf | Vector implementation note
+CHEM-002 | Chemistry | k=A e^{-Ea/RT} | Ea=75kJ/mol,T=350K → k≈5.9e1 s⁻¹ | Ea≈32.24 BTU/lb·mol → k≈5.9e1 s⁻¹ | slope method ln k vs 1/T
+BIO-003 | Biology | v=Vmax[S]/(Km+[S]) | Vmax=100,S=10 → v≈50 | same with mass units | Lineweaver-Burk linear fit
+...
+SPAT-001 | Geodesy | Haversine formula | Lat/Lon → distance | Imperial distance | WGS84 corrections
+...
