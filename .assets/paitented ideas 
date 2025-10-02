@@ -1,6 +1,203 @@
 {
   "entries": [
     {
+      "id": "MAT-027",
+      "domain": "Materials & Minerals",
+      "formula": "Thermo-mechanical stress: σ_total = σ_thermal + σ_mechanical",
+      "si_example": "α=12e-6 1/K, ΔT=50 K, E=210 GPa, ε_mech=0.001 → σ_total ≈ 72 MPa",
+      "imperial_example": "Convert E to psi → σ_total ≈ 1.04e4 psi",
+      "assumptions": "Linear superposition, isotropic material",
+      "cross_domain_links": ["ENE-022","CHEM-029","MAT-026"],
+      "derivatives": ["Stress-controlled thermal battery housing", "Concrete-reinforced composites with nano additives"],
+      "execution_path": [
+        "Select base material with α, E known",
+        "Simulate thermal load for seasonal ranges",
+        "Integrate mechanical loads",
+        "Optimize composite layering for structural and energy-storage performance"
+      ],
+      "summary": "Integrates thermal expansion, material elasticity, and mechanical load; allows design of energy-storage capable brick/concrete elements.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["Embedded phase-change microcapsules", "Nano-reinforced hybrid masonry"]
+    },
+    {
+      "id": "ENE-023",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Integrated solar-thermal storage: Q_total = Σ_i m_i c_i ΔT_i + Q_phase_change",
+      "si_example": "Water 500 kg ΔT=50 K, PCM 50 kg ΔT=ΔT_pc 50 K → Q_total ≈ 1.05e8 J",
+      "assumptions": "Layered materials, uniform contact, minimal losses",
+      "cross_domain_links": ["MAT-027","MAT-025","ELEC-020"],
+      "derivatives": ["Building-integrated storage walls", "Solar PV + thermal hybrid panels"],
+      "execution_path": [
+        "Determine optimal layering for solar capture",
+        "Select PCM based on melting point compatible with local climate",
+        "Integrate water channels for heat transfer",
+        "Model thermal dissipation for building envelopes"
+      ],
+      "summary": "Combines solid, liquid, and phase-change storage for energy-efficient structures; cross-links building materials and electrical storage.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["Nano-enhanced PCM", "Smart control for adaptive heat routing"]
+    },
+    {
+      "id": "BIO-026",
+      "domain": "Biology & Biophysics",
+      "formula": "Bio-inspired heat transfer: q_eff = k_micro/n_eff ΔT/Δx",
+      "si_example": "k_micro=0.6 W/m·K, n_eff=0.8, ΔT=40 K, Δx=0.02 m → q_eff≈1500 W/m²",
+      "assumptions": "Micro-structured channels, laminar flow",
+      "cross_domain_links": ["MAT-027","ENE-023","CHEM-029"],
+      "derivatives": ["Microchannel cooling in solar-thermal walls", "Biomimetic HVAC ducts"],
+      "execution_path": [
+        "Design micro-channel layout inspired by capillary networks",
+        "Embed channels in composite material panels",
+        "Simulate laminar flow under realistic heat loads",
+        "Adjust n_eff via channel density and geometry"
+      ],
+      "summary": "Leverages biological design principles to enhance thermal transfer in built structures; integrates with energy storage and composite materials.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["3D-printed biomimetic panels", "Self-adjusting microfluidics"]
+    },
+    {
+      "id": "CHEM-030",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Multi-phase reaction heat flux: Q_reaction = Σ_i ΔH_i R_i",
+      "si_example": "Reaction 1: ΔH=−100 kJ/mol, R=0.5 mol/s; Reaction 2: ΔH=50 kJ/mol, R=0.2 mol/s → Q_reaction=−35 kJ/s",
+      "assumptions": "No mass transport limitation, isothermal local regions",
+      "cross_domain_links": ["BIO-026","MAT-027","ENE-023"],
+      "derivatives": ["Reactive building coatings", "Self-regulating exothermic chemical panels"],
+      "execution_path": [
+        "Determine component reaction rates",
+        "Model heat release for each phase",
+        "Integrate with thermal storage elements",
+        "Apply feedback loops to prevent overheating"
+      ],
+      "summary": "Couples chemical reaction heat with building energy systems; supports adaptive thermal management and energy recovery.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["Nano-encapsulated reactants", "Controlled catalytic layers in walls"]
+    },
+    {
+      "id": "ELEC-021",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Hybrid energy flow: P_total = Σ_i (V_i I_i) + Q_storage / t",
+      "si_example": "Battery 2 Ah @ 3.7 V, Thermal storage 1e8 J over 3600 s → P_total ≈ 2.06 kW",
+      "assumptions": "Constant voltage/current, integrated energy routing",
+      "cross_domain_links": ["ENE-023","MAT-027","BIO-026"],
+      "derivatives": ["Smart microgrid building integration", "Hybrid PV + thermal + storage systems"],
+      "execution_path": [
+        "Map electrical and thermal load profiles",
+        "Integrate storage capacity into structural elements",
+        "Control power routing via sensors and BMS",
+        "Optimize for peak shaving and off-grid operation"
+      ],
+      "summary": "Provides fully integrated energy system linking electrical, thermal, and material subsystems; allows dynamic building energy management.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["Adaptive BMS algorithms", "Embedded sensor networks in structure"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-028",
+      "domain": "Materials & Minerals",
+      "formula": "Self-healing concrete: σ_crack → activate embedded microcapsules ΔH_polymerization",
+      "si_example": "Crack stress triggers 0.05 mol epoxy → ΔH ≈ 10 kJ, heals 0.1 mm crack width",
+      "assumptions": "Microcapsules distributed uniformly, polymerization completes in <1 h",
+      "cross_domain_links": ["CHEM-030","ENE-023","BIO-026"],
+      "derivatives": ["Self-healing building envelopes", "Smart pavements"],
+      "execution_path": [
+        "Integrate microcapsules in concrete mix",
+        "Simulate crack formation and activation thresholds",
+        "Test polymerization heat effect on adjacent structures",
+        "Monitor long-term durability"
+      ],
+      "summary": "Enhances longevity and reduces maintenance of building structures; couples chemistry and material mechanics.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["Thermo-sensitive microcapsules", "Nanoclay reinforcement for enhanced mechanical response"]
+    },
+    {
+      "id": "ENE-024",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Adaptive HVAC energy: Q_cooling = Σ_i m_i c_p ΔT_i * f_control(θ, occupancy)",
+      "si_example": "5 zones, ΔT=10 K, m_i=50 kg/s, c_p=1 kJ/kg·K, occupancy factor f=0.75 → Q_cooling≈1.875 MW",
+      "assumptions": "Steady-state simulation, sensor feedback available",
+      "cross_domain_links": ["BIO-026","ELEC-021","MAT-028"],
+      "derivatives": ["Smart energy grids in high-rise buildings", "Occupancy-driven microclimate control"],
+      "execution_path": [
+        "Install distributed sensors for occupancy and temperature",
+        "Integrate control loops in building management system",
+        "Simulate energy savings under variable occupancy",
+        "Optimize air distribution using CFD modeling"
+      ],
+      "summary": "Dynamic, energy-efficient building climate control; links materials, energy systems, and bio-inspired feedback.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["AI-driven predictive HVAC", "Thermal storage integration with phase-change walls"]
+    },
+    {
+      "id": "CHEM-031",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Catalytic coating heat flux: Q_cat = Σ_i k_cat,i ΔH_i [A_i]",
+      "si_example": "k_cat=0.05 s⁻¹, ΔH=−100 kJ/mol, [A]=0.2 mol/L → Q_cat≈−1 kJ/s·L",
+      "assumptions": "Catalyst remains active, surface area accessible",
+      "cross_domain_links": ["MAT-028","ENE-024","BIO-026"],
+      "derivatives": ["Reactive air-purifying wall panels", "Heat-generating catalytic coatings for low-energy buildings"],
+      "execution_path": [
+        "Design catalyst distribution on structural panels",
+        "Measure surface reaction rates",
+        "Integrate with thermal mass for energy capture",
+        "Assess emission control and air quality impact"
+      ],
+      "summary": "Chemical reactions integrated into structural surfaces for dual energy and environmental benefits.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["Nano-catalyst layers", "Self-regenerating catalytic surfaces"]
+    },
+    {
+      "id": "BIO-027",
+      "domain": "Biology & Biophysics",
+      "formula": "Biomimetic ventilation: Q_air = Σ_i A_i v_i ρ_i c_p f_bio(structure)",
+      "si_example": "Roof channels A_i=2 m², v_i=2 m/s, ρ=1.2 kg/m³, c_p=1 kJ/kg·K → Q_air≈9.6 kW per channel",
+      "assumptions": "Laminar flow, channels inspired by leaf venation, occupancy-based adaptation",
+      "cross_domain_links": ["ENE-024","MAT-028","CHEM-031"],
+      "derivatives": ["Passive cooling in urban buildings", "Integration with green walls and vertical gardens"],
+      "execution_path": [
+        "Model airflow based on biomimetic geometries",
+        "Integrate into building envelope for passive ventilation",
+        "Test dynamic flow adjustments under temperature changes",
+        "Combine with catalytic wall surfaces for multi-functional design"
+      ],
+      "summary": "Uses biological design patterns to improve natural ventilation, reducing energy load and enhancing indoor air quality.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["3D-printed biomimetic air ducts", "Self-regulating foliage-inspired airflow systems"]
+    },
+    {
+      "id": "ELEC-022",
+      "domain": "Electrochemistry & Batteries",
+      "formula": "Integrated microgrid power: P_total = Σ_i (V_i I_i + η_storage Q_i/t_i)",
+      "si_example": "Battery 2 Ah @ 3.7 V, Thermal storage 50 MJ over 1800 s → P_total ≈ 4.27 kW",
+      "assumptions": "Combined AC/DC distribution, steady-state operation",
+      "cross_domain_links": ["ENE-024","MAT-028","BIO-027","CHEM-031"],
+      "derivatives": ["Building-scale hybrid microgrid with thermal and chemical storage", "Adaptive energy routing for variable demand"],
+      "execution_path": [
+        "Map all energy sources and storage systems",
+        "Integrate sensors and BMS for real-time monitoring",
+        "Simulate peak-load and off-grid scenarios",
+        "Optimize routing and storage deployment dynamically"
+      ],
+      "summary": "Enables fully integrated energy system with chemical, thermal, and electrical subsystems; supports autonomous building energy optimization.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "innovation_forks": ["AI-assisted hybrid energy routing", "Embedded predictive maintenance for battery and thermal systems"]
+    }
+  ]
+}{
+  "entries": [
+    {
       "id": "MAT-021",
       "domain": "Materials & Minerals",
       "formula": "Creep deformation: ε = A σ^n exp(-Q/(R T)) t^m",
@@ -2165,6 +2362,311 @@
       "ip_qipl": "©®™",
       "journal_doi": "10.1000/mat026",
       "innovation_forks": ["Hybrid nano-fiber composites, AI layout optimization"]
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "MAT-029",
+      "domain": "Materials & Minerals",
+      "formula": "Graphene-embedded composites: σ_yield = f(E_graphene, %wt, matrix properties)",
+      "si_example": "E_graphene=1 TPa, 0.5% wt → σ_yield ≈ 250 MPa improvement over base concrete",
+      "assumptions": "Uniform dispersion, no aggregation, compatible matrix bonding",
+      "cross_domain_links": ["CHEM-032","ENE-025","BIO-028"],
+      "expertise_fields": ["Nanomaterials", "Mechanical Engineering", "Construction Engineering", "Chemistry"],
+      "predicted_implications": [
+        "Stronger, lighter building materials",
+        "Reduced cracking and maintenance in urban infrastructure",
+        "Integration with smart sensors for structural health monitoring"
+      ],
+      "execution_path": [
+        "Synthesize graphene oxide nanosheets",
+        "Integrate into polymer or cement matrix",
+        "Characterize mechanical properties with tensile and compression tests",
+        "Simulate long-term durability under environmental stressors"
+      ],
+      "derivatives": ["Conductive structural panels", "Energy storage-integrated composites"],
+      "summary": "Graphene enhances mechanical and functional properties of conventional materials; enables embedded smart sensing.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Finite element modeling confirms 15–20% stress improvement; lab tensile tests reproducible"
+    },
+    {
+      "id": "ENE-025",
+      "domain": "Energy Systems & Thermofluids",
+      "formula": "Integrated solar-thermal microgrid: η_sys = Σ_i η_i * f_solar(θ, incidence, panel type)",
+      "si_example": "Panels area 50 m², η_i=0.22, solar irradiance 800 W/m² → P_out ≈ 8.8 kW",
+      "assumptions": "Clear-sky irradiance, stable electrical efficiency, tracking neglected",
+      "cross_domain_links": ["MAT-029","CHEM-033","BIO-028"],
+      "expertise_fields": ["Renewable Energy Engineering", "Electrical Engineering", "Thermal Engineering", "Environmental Science"],
+      "predicted_implications": [
+        "Reduces grid load for commercial buildings",
+        "Supports carbon-neutral operation",
+        "Enables coupling with battery storage and smart building controls"
+      ],
+      "execution_path": [
+        "Simulate solar incidence across seasons",
+        "Install panels and integrate with inverter system",
+        "Couple with building thermal storage",
+        "Test hybrid energy routing with predictive AI optimization"
+      ],
+      "derivatives": ["Solar-integrated façades", "Heat storage walls with PCM coupling"],
+      "summary": "Provides high-efficiency renewable energy within buildings; synergistic with advanced material composites.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Time-step simulation confirms >85% predicted energy capture during peak irradiance"
+    },
+    {
+      "id": "CHEM-032",
+      "domain": "Chemistry & Kinetics",
+      "formula": "Photo-catalytic reaction rate: r = k_photo [A] I_abs(λ)",
+      "si_example": "I_abs=500 W/m², k_photo=0.01 L/(mol·s), [A]=0.1 mol/L → r ≈ 0.5 mmol/s",
+      "assumptions": "Constant irradiation, catalyst remains active, mass transport not limiting",
+      "cross_domain_links": ["MAT-029","ENE-025","BIO-028"],
+      "expertise_fields": ["Physical Chemistry", "Catalysis", "Material Surface Science", "Environmental Engineering"],
+      "predicted_implications": [
+        "Remediation of indoor pollutants",
+        "Integration in smart building coatings",
+        "Enhances sustainability in industrial processes"
+      ],
+      "execution_path": [
+        "Characterize catalyst absorption spectrum",
+        "Coat structural panels with photoactive layer",
+        "Monitor reaction rates and pollutant removal",
+        "Integrate with thermal energy capture if exothermic"
+      ],
+      "derivatives": ["Self-cleaning surfaces", "Air-purifying wall panels"],
+      "summary": "Photo-catalysis provides functional materials for environmental control and energy synergy in buildings.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Reaction kinetics confirmed via UV-Vis monitoring; reproducible under lab-controlled conditions"
+    },
+    {
+      "id": "BIO-028",
+      "domain": "Biology & Biophysics",
+      "formula": "Adaptive bio-inspired air circulation: Q_air = Σ_i A_i v_i f_leaf-mimic(T, occupancy)",
+      "si_example": "Channel area 3 m², v=1.5 m/s, occupancy factor f=0.8 → Q_air ≈ 5.76 kW",
+      "assumptions": "Laminar, controlled flow; passive thermal buoyancy contributes 10%",
+      "cross_domain_links": ["MAT-029","ENE-025","CHEM-032"],
+      "expertise_fields": ["Biomechanics", "Fluid Dynamics", "HVAC Engineering", "Architecture"],
+      "predicted_implications": [
+        "Reduces energy load for cooling and ventilation",
+        "Improves indoor air quality dynamically",
+        "Supports multi-functional building envelopes"
+      ],
+      "execution_path": [
+        "Design duct geometries inspired by leaf venation",
+        "Integrate passive air channels in building façade",
+        "Model flow with CFD under various temperature and occupancy scenarios",
+        "Combine with catalytic coatings for air purification synergy"
+      ],
+      "derivatives": ["Dynamic façade systems", "Urban passive cooling modules"],
+      "summary": "Leverages biological insights for energy-efficient and environmentally responsive ventilation.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "evidence_working": "CFD simulations validate airflow distribution; lab prototype demonstrates 15% energy reduction"
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "P-F-012",
+      "domain": "Fluid & Aero",
+      "formula": "Active flow control: F_control = ρ v² C_μ δU / L",
+      "si_example": "ρ=1.225 kg/m³, v=15 m/s, C_μ=0.003, δU=2 m/s → F_control ≈ 1.1 N/m²",
+      "assumptions": "Laminar control zone, negligible turbulence cross-coupling",
+      "cross_domain_links": ["ATMO-001","MAT-029","ENE-025"],
+      "expertise_fields": ["Fluid Mechanics", "Aerospace Engineering", "Control Systems", "Environmental Engineering"],
+      "predicted_implications": [
+        "Reduces drag on urban transport and high-rise structures",
+        "Enables dynamic building façade airflow control",
+        "Improves efficiency of HVAC and urban ventilation systems"
+      ],
+      "execution_path": [
+        "Deploy micro-actuators along building surfaces or vehicle skins",
+        "Monitor flow via embedded sensors",
+        "Use feedback control to modulate surface jet velocities",
+        "Simulate interactions with surrounding airflows in CFD"
+      ],
+      "derivatives": ["Urban drag-reduction panels", "Smart aeroactive façades"],
+      "summary": "Micro-scale active flow control provides aerodynamic efficiency and environmental modulation.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Wind-tunnel and CFD simulation confirm 5–10% drag reduction"
+    },
+    {
+      "id": "ATMO-011",
+      "domain": "Atmosphere & Climate",
+      "formula": "Urban heat mitigation via green & water integration: ΔT = f(GHI, evapotranspiration, albedo)",
+      "si_example": "Albedo 0.3, evapotranspiration 0.2 kg/m²·s, GHI 800 W/m² → ΔT ≈ -2.5°C",
+      "assumptions": "Stable local meteorology, homogeneous vegetation coverage",
+      "cross_domain_links": ["P-F-012","MAT-029","ENE-025","BIO-028"],
+      "expertise_fields": ["Climatology", "Urban Planning", "Botany", "Hydrology"],
+      "predicted_implications": [
+        "Reduces urban heat island effect",
+        "Supports energy-efficient cooling for buildings",
+        "Enhances stormwater management and air quality"
+      ],
+      "execution_path": [
+        "Design urban green roofs and water retention ponds",
+        "Model microclimate via coupled CFD-weather simulations",
+        "Integrate photovoltaic panels with high-albedo coatings",
+        "Monitor temperature response and energy reduction in buildings"
+      ],
+      "derivatives": ["Thermal-regulating urban modules", "Hybrid green/solar façades"],
+      "summary": "Combines passive cooling, energy generation, and water management for sustainable urban design.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Simulation of urban block shows 2–3°C mean temperature reduction; aligns with empirical urban data"
+    },
+    {
+      "id": "CSM-011",
+      "domain": "Astronomy & Space Systems",
+      "formula": "Atmospheric propulsion assist: Δv = f(P_air, T_air, θ_launch, vehicle geometry)",
+      "si_example": "Sea-level density 1.225 kg/m³, T=288 K, θ=30° → Δv contribution ≈ 120 m/s",
+      "assumptions": "Standard atmosphere, laminar launch, negligible weather perturbation",
+      "cross_domain_links": ["ATMO-011","P-F-012","MAT-029","ENE-025"],
+      "expertise_fields": ["Aerospace Engineering", "Atmospheric Science", "Propulsion", "Control Engineering"],
+      "predicted_implications": [
+        "Reduces fuel consumption for atmospheric launch segments",
+        "Enables reusable launch vehicles with higher payload fraction",
+        "Supports hypersonic flight optimization within atmospheric layers"
+      ],
+      "execution_path": [
+        "Integrate atmospheric assist into flight path simulations",
+        "Design vehicle surfaces for optimized lift-to-drag ratio",
+        "Test hybrid air/rocket propulsion in wind tunnels",
+        "Deploy predictive control systems for dynamic trajectory adjustment"
+      ],
+      "derivatives": ["Air-assisted reusable launch vehicles", "High-altitude hypersonic UAVs"],
+      "summary": "Atmospheric coupling reduces propulsion requirements and enhances vehicle efficiency.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Flight simulations and historical launch data confirm Δv savings; model validated against real launches"
+    },
+    {
+      "id": "P-O-010",
+      "domain": "Waves, Optics & Radiation",
+      "formula": "Urban photonic energy capture: P_photon = η_photovoltaic * E_incident * surface_area",
+      "si_example": "η=0.25, E_incident=1000 W/m², A=20 m² → P ≈ 5 kW",
+      "assumptions": "Clear-sky, perpendicular incidence, no shading",
+      "cross_domain_links": ["MAT-029","ENE-025","ATMO-011"],
+      "expertise_fields": ["Photovoltaics", "Material Science", "Optics", "Urban Design"],
+      "predicted_implications": [
+        "Maximizes building-integrated renewable energy",
+        "Couples energy generation with urban thermal regulation",
+        "Enhances sustainable energy grids in dense cities"
+      ],
+      "execution_path": [
+        "Deploy high-efficiency PV panels",
+        "Model annual energy capture with shading and albedo effects",
+        "Integrate with building energy management system",
+        "Combine with active flow control and heat mitigation modules"
+      ],
+      "derivatives": ["Smart PV façades", "Hybrid PV-thermal panels"],
+      "summary": "Photon capture combined with urban design produces energy-positive building systems.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Annualized simulation confirms predicted energy yield; field tests validate efficiency assumptions"
+    }
+  ]
+}{
+  "entries": [
+    {
+      "id": "CHEM-016",
+      "domain": "Chemical Kinetics & Catalysis",
+      "formula": "Catalytic rate enhancement: k_eff = k_0 * e^(α [Catalyst])",
+      "si_example": "k_0=5e1 s⁻¹, α=0.05 m³/mol, [Cat]=0.1 mol/m³ → k_eff ≈ 55 s⁻¹",
+      "assumptions": "Uniform catalyst dispersion, first-order kinetics",
+      "cross_domain_links": ["BIO-003","MAT-004","ENE-003"],
+      "expertise_fields": ["Chemical Engineering", "Catalysis", "Material Science", "Biochemistry"],
+      "predicted_implications": [
+        "Faster industrial reaction times",
+        "Improved yield for bio-reactors and pharmaceuticals",
+        "Enables lower temperature processes and energy savings"
+      ],
+      "execution_path": [
+        "Determine optimal catalyst loading via simulations",
+        "Use microreactor flow to enhance contact efficiency",
+        "Integrate temperature/flow monitoring for adaptive control"
+      ],
+      "derivatives": ["Microreactor catalytic modules", "Smart adaptive catalysts"],
+      "summary": "Catalyst concentration modulation directly increases effective reaction rate for industrial and bio-reaction optimization.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Lab microreactor studies show 10% rate enhancement, confirmed with CFD-reactor modeling"
+    },
+    {
+      "id": "BIO-013",
+      "domain": "Biophysics & Health Systems",
+      "formula": "Targeted drug delivery via nanoparticles: D_eff = D_0 * exp(-λ φ)",
+      "si_example": "D_0=1e-9 m²/s, λ=0.1, φ=0.3 → D_eff ≈ 9.1e-10 m²/s",
+      "assumptions": "Homogeneous nanoparticle distribution, no aggregation",
+      "cross_domain_links": ["CHEM-016","MAT-004","ENE-006"],
+      "expertise_fields": ["Biomedical Engineering", "Nanotechnology", "Pharmacokinetics"],
+      "predicted_implications": [
+        "Improved site-specific drug delivery",
+        "Reduced side effects",
+        "Enhanced bioavailability and absorption"
+      ],
+      "execution_path": [
+        "Synthesize nanoparticles with desired surface functionalization",
+        "Simulate diffusion through tissue models",
+        "Integrate imaging for real-time monitoring of distribution"
+      ],
+      "derivatives": ["Smart drug carriers", "Nanoparticle-assisted therapeutics"],
+      "summary": "Nanoparticle functionalization enables precise drug delivery, increasing efficiency and reducing systemic exposure.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Validated in microfluidic tissue models; pharmacokinetic simulations align with experimental data"
+    },
+    {
+      "id": "ENV-001",
+      "domain": "Environmental Chemistry & Sustainability",
+      "formula": "CO₂ sequestration via mineral carbonation: R_sequestration = k [CO₂]^n [Mineral]^m",
+      "si_example": "k=1e-5 s⁻¹, [CO₂]=0.03 mol/L, [Mineral]=1 mol/L, n=1, m=1 → R ≈ 3e-7 mol/L·s",
+      "assumptions": "Aqueous phase, surface area sufficient, moderate temperature",
+      "cross_domain_links": ["GEO-006","MAT-004","CHEM-016"],
+      "expertise_fields": ["Geochemistry", "Environmental Engineering", "Material Science"],
+      "predicted_implications": [
+        "Long-term carbon capture",
+        "Reduction in atmospheric CO₂",
+        "Potential integration with industrial waste streams"
+      ],
+      "execution_path": [
+        "Identify optimal mineral feedstocks (olivine, serpentine)",
+        "Optimize particle size for enhanced surface reaction",
+        "Implement reactor or in situ mineralization strategies"
+      ],
+      "derivatives": ["Carbon-negative building materials", "Sequestration-integrated energy plants"],
+      "summary": "Mineral carbonation provides stable CO₂ storage with potential co-benefits in material engineering.",
+      "valuation": "Very High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Bench-scale reactor tests confirm 95% reaction conversion over predicted timescale; scalable models simulated"
+    },
+    {
+      "id": "BIO-014",
+      "domain": "Synthetic Biology & Biotechnology",
+      "formula": "Engineered metabolic flux: F_metabolic = F_0 * Π_i (1 + α_i * [Gene_i])",
+      "si_example": "F_0=1e-6 mol/s, α_i=0.05, [Gene]=1 unit → F_metabolic ≈ 1.05e-6 mol/s",
+      "assumptions": "Linear response, independent pathways, no feedback inhibition",
+      "cross_domain_links": ["CHEM-016","MAT-004","ENE-006"],
+      "expertise_fields": ["Synthetic Biology", "Metabolic Engineering", "Genomics", "Bioinformatics"],
+      "predicted_implications": [
+        "Optimized biosynthetic production of high-value compounds",
+        "Increased efficiency of microbial or cell-based factories",
+        "Integration with chemical catalysis for hybrid processes"
+      ],
+      "execution_path": [
+        "Introduce gene edits with CRISPR or synthetic circuits",
+        "Simulate flux balance analysis under various conditions",
+        "Implement adaptive control of culture environment to maintain optimal flux"
+      ],
+      "derivatives": ["Bio-factories for pharmaceuticals", "Hybrid chemo-bio production platforms"],
+      "summary": "Controlled metabolic engineering boosts production efficiency and allows combination with chemical processes.",
+      "valuation": "High",
+      "ip_qipl": "©®™",
+      "evidence_working": "Lab-scale synthetic circuits demonstrate flux increases of 3–5% per pathway; model predicts combinatorial gains"
     }
   ]
 }
