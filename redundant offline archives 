@@ -1,0 +1,2 @@
+# Example encryption before cloud upload
+gpg --output flamebank.ac.zip.gpg --symmetric flamebank.ac.zip
