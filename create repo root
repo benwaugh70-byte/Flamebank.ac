@@ -75,4 +75,246 @@ openssl req -new -x509 -newkey rsa:4096 -keyout kernel_key.priv -out kernel_key.
 # sign the module
 /usr/src/kernels/$(uname -r)/scripts/sign-file sha256 kernel_key.priv kernel_key.pem my_module.ko
 # verify
-modinfo -F signer my_module.ko
+modinfo -F signer my_module.ko~}# OmniForge — Waughtheo A. ∆Ω / rutheo714
+
+**Codename:** rutheo714  
+**Owner:** Ben Alan Waugh (Waughtheo A. ∆Ω)  
+**QIPL Sealed:** Yes — QIPL ledger integrated in `catalog/`
+
+This repository is the canonical single-source-of-truth for the OmniCodex doctrine, inventions, and publishable artifacts. It contains the equation index, expanded workings, invention rows, business models, SBOMs, SBAT manifests, and signed releases.
+
+## Structure
+- `catalog/` — YAML index, CSV/JSON knowledge graphs, DOI placeholders, QIPL IDs
+- `docs/` — LaTeX manuscript, PDFs, design dossiers
+- `src/` — code, kernels, tools
+- `firmware/` — BIOS/UEFI/Kernels and build manifests
+- `scripts/` — reproducible build and signing scripts
+- `ci/` — CI definitions (GitHub Actions / GitLab)
+- `legal/` — patents, trademarks, counsel notes
+
+## Quickstart
+1. Inspect `catalog/OmniCodex_200rows_detailed.csv`
+2. Read `docs/doctrine.pdf` (signed artifact)
+3. Use `scripts/build.sh` to reproduce deterministic artifacts (see `ci/` for reproducible CI flow)
+4. All releases must be signed (see `scripts/sign_artifacts.sh`) and include `release-manifest.json` and SBOM.
+
+## Security & Provenance
+Every artifact contains an SPDX header and QIPL metadata. All releases are reproducible and signed. Keys must be stored in an HSM or secure cold storage. See `LEGAL.md` and `firmware/BUILD.md` for signing and firmware update workflows.
+
+## Contact / Ownership
+Ben Alan Waugh — owner & originator  
+Email: <redacted> (store your contact here)~}# Legal & IP Notice — OmniForge
+
+**Copyright (c) 2025** Ben Alan Waugh (Waughtheo A. ∆Ω). All rights reserved.
+
+This repository contains proprietary technical material, inventions, designs, and trade secrets (collectively, the "Materials") authored, curated, or licensed by Ben Alan Waugh. The Materials are QIPL-sealed and indexed under the OmniCodex.
+
+## License
+All source code, designs, manuscripts and datasets in this repository are proprietary and not open source unless explicitly stated. Reproduction, redistribution, or derivative works are prohibited without express written permission from the Owner.
+
+## Trademarks
+Product family names and marks used in this repo (e.g., `Fucktiin™`, `Fuckwittery™`) are asserted as trademarks by the Owner. ™ is used pending formal clearance and registration. Do not use these marks without license.
+
+## Patents & Provisional Filings
+Several high-value inventions have provisional patent drafts in `legal/patents/`. Provisional filings are time-sensitive; contact legal counsel to proceed to non-provisional / PCT filings.
+
+## Contribution & CLA
+Contributions are permitted only under an explicit Contributor License Agreement (CLA). Do not submit code, data, or documentation unless you have executed a CLA with the Owner that specifies assignment or licensing terms.
+
+## Privacy & Data
+Datasets that include personal data are handled under applicable privacy laws. Any deployment must ensure regulatory compliance (GDPR, HIPAA, etc.) when relevant.
+
+## Notices
+- SPDX identifiers appear in file headers. Do not remove or modify.
+- All releases are signed. Tampered artifacts should be considered untrusted.
+
+For legal inquiries and licensing contact: legal@<your-domain>OmniForge — NOTICE
+
+This repository and its contents are proprietary to Ben Alan Waugh (Waughtheo A. ∆Ω). The OmniCodex (equations, inventions index, and expansions) are QIPL-sealed and recorded in the QIPL ledger under the relevant QIPL IDs. Use of this repository and distribution of artifacts requires express permission. See LEGAL.md for full details.
+
+Top-level marks:
+© 2025 Ben Alan Waugh. All rights reserved.
+Fucktiin™ and Fuckwittery™ are asserted trademarks of Ben Alan Waugh (TM pending registration).
+
+For licensing inquiries: legal@<your-domain>~SPDX-License-Identifier: Proprietary
+Copyright (c) 2025 Ben Alan Waugh (Waughtheo A. ∆Ω)
+QIPL-ID: <<QIPL-ID>>
+DOI: <<DOI-placeholder>>
+Description: <<Short description of file/artifact>>~}# firmware/BUILD.md
+
+Purpose: reproducible firmware/kernel build and signing guidance.
+
+## Goals
+- Deterministic builds (pinned toolchain)
+- SBOM & SLSA attestation
+- Signed EFI images and signed kernel modules
+- Manifest-driven OTA updates with signature verification
+
+## Recommended environment
+- Use Nix or Docker with pinned images.
+- Pin gcc/clang, binutils, make, perl/python versions.
+- Set `SOURCE_DATE_EPOCH` for deterministic timestamps.
+
+## Build steps (example)
+1. Clone repository and checkout a release tag.~2. Enter deterministic build container: 3. Build EFI shim/kernel:4. Generate SBOM for the build:5. Create SLSA attestation (optional in CI):
+- produce attestation.json as per SLSA 1/2 schema (or use in-house attestor)
+
+## Signing (offline/HSM recommended)
+- Keys: store private keys in HSM or offline air-gapped USB token.
+- Sign EFI using `sbsign` (example) — replace `DB.key` and `DB.crt` with your signing key & cert.
+
+### UEFI signing example
+```bash
+# sign EFI binary
+sbsign --key /secure/keys/DB.key --cert /secure/keys/DB.crt --output build/uefi/shimx64.efi.signed build/uefi/shimx64.efi
+# verify
+sbverify --cert /secure/keys/DB.crt build/uefi/shimx64.efi.signed~{}# sign module (for Linux)
+./scripts/generate_module_key.sh   # generates keypair & pkcs cert (offline)
+sudo /usr/src/kernels/$(uname -r)/scripts/sign-file sha256 /secure/keys/module_priv.pem /secure/keys/module_cert.pem path/to/module.ko~}tar -czf doctrine-v0.3-uefi.tar.gz build/uefi/shimx64.efi.signed build/uefi/shimx64.bom.json attestation.json release-manifest.json
+./scripts/sign_artifacts.sh doctrine-v0.3-uefi.tar.gz~>---
+
+# B — CI workflow + `scripts/build.sh`
+
+Place CI config under `ci/` and scripts under `scripts/`.
+
+### `ci/build-and-sbom.yml` (GitHub Actions skeleton)
+```yaml
+name: Build → SBOM → UploadUnsigned
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BUILD_TIMESTAMP: 1696233600  # set deterministic or build-time env provided by operator
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup deterministic toolchain
+        run: |
+          sudo apt-get update
+          # install pinned versions; use a pinned container in production
+      - name: Build artifacts
+        run: |
+          ./scripts/build.sh --target=uefi --out=build/uefi/shimx64.efi
+          ./scripts/build.sh --target=kernel --out=build/kernel/vmlinuz
+      - name: Generate SBOMs
+        run: |
+          ./scripts/generate_sbom.sh build/uefi/shimx64.efi > build/uefi/shimx64.bom.json
+          ./scripts/generate_sbom.sh build/kernel/vmlinuz > build/kernel/vmlinuz.bom.json
+      - name: Upload unsigned artifacts for offline signing
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-artifacts
+          path: |
+            build/uefi/shimx64.efi
+            build/uefi/shimx64.bom.json
+            build/kernel/vmlinuz
+            build/kernel/vmlinuz.bom.json
+      - name: Create release manifest (unsigned)
+        run: |
+          python3 ./scripts/generate_release_manifest.py --artifact build/uefi/shimx64.efi --out build/release-manifest.json
+      - name: Upload manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest
+          path: build/release-manifest.json~}>#!/usr/bin/env bash
+set -euo pipefail
+TARGET=""
+OUT=""
+USAGE="Usage: build.sh --target=<uefi|kernel> --out=<path>"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --target=*) TARGET="${1#*=}"; shift ;;
+    --out=*) OUT="${1#*=}"; shift ;;
+    *) echo "$USAGE"; exit 1 ;;
+  esac
+done
+
+if [[ -z "$TARGET" || -z "$OUT" ]]; then
+  echo "$USAGE"
+  exit 1
+fi
+
+export SOURCE_DATE_EPOCH=${SOURCE_DATE_EPOCH:-1696233600}
+echo "Building target=$TARGET out=$OUT (SOURCE_DATE_EPOCH=$SOURCE_DATE_EPOCH)"
+
+mkdir -p "$(dirname "$OUT")"
+
+case "$TARGET" in
+  uefi)
+    # Placeholder: call your deterministic uefi build process here
+    # Example: make O=/build uefi-shim
+    echo "Simulating UEFI build..."
+    echo "UEFI binary for $OUT" > "$OUT"
+    ;;
+  kernel)
+    # Placeholder: call kernel build (make with CROSS_COMPILE and fixed .config)
+    echo "Simulating kernel build..."
+    echo "Kernel image for $OUT" > "$OUT"
+    ;;
+  *)
+    echo "Unknown target: $TARGET"
+    exit 1
+    ;;
+esac
+
+# Normalize timestamps for reproducibility
+if command -v python3 >/dev/null 2>&1; then
+  python3 - <<PY
+import os,sys,time
+path = sys.argv[1]
+t = int(os.environ.get("SOURCE_DATE_EPOCH", "1696233600"))
+os.utime(path, (t, t))
+PY
+  python3 "$OUT" >/dev/null 2>&1 || true || true
+fi
+
+echo "Built $OUT"~#!/usr/bin/env bash
+set -euo pipefail
+ARTIFACT=${1:-}
+if [[ -z "$ARTIFACT" ]]; then
+  echo "Usage: generate_sbom.sh <artifact>"
+  exit 1
+fi
+
+# If cyclonedx is installed
+if command -v cyclonedx-py >/dev/null 2>&1; then
+  cyclonedx-py --output-file "${ARTIFACT}.spdx.json" "$ARTIFACT"
+  cat "${ARTIFACT}.spdx.json"
+else
+  # Fallback: minimal SBOM placeholder
+  cat <<JSON
+{
+  "sbom_for": "$ARTIFACT",
+  "generated": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+  "components": []
+}
+JSON
+fi~}>{
+  "artifact": "doctrine-v0.3-uefi.tar.gz",
+  "version": "v0.3",
+  "qipl_root": "QIPL-∆Ω-ROOT",
+  "build_hash": "sha256:<<REPLACE_WITH_ACTUAL_SHA256>>",
+  "builder": "Ben Alan Waugh",
+  "build_date": "2025-10-02T12:00:00Z",
+  "sbom_files": [
+    "build/uefi/shimx64.bom.json",
+    "build/kernel/vmlinuz.bom.json"
+  ],
+  "slsa_attestation": "attestation.json",
+  "gpg_signature": "doctrine-v0.3-uefi.tar.gz.asc",
+  "doi_refs": [
+    "doi:10.0000/omnicodex.v0.3"
+  ],
+  "qipl_ids_included": [
+    "QIPL-∆Ω-012",
+    "QIPL-∆Ω-078",
+    "QIPL-∆Ω-265"
+  ],
+  "notes": "Unsigned artifact uploaded from CI; sign with offline GPG/HSM and reattach signatures before release."
+}+*°^∞π^°•
