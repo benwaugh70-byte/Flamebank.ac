@@ -1,0 +1,2 @@
+# Push master/main branch and tags to remote
+git push origin main --tags
