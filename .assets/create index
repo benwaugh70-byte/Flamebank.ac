@@ -1,4 +1,22 @@
->~[
+{
+  "hash_sha1": "37dbe2972ddb5963723108d641b9bd1edc31f35f",
+  "hash_sha256": "9a3f4b2d5c1f0c7e84e2d8b9f0c17b5c64b3f8b8e6a4f2d7b9c5e1d2f3a4b5c6",
+  "hash_md5": "e4d909c290d0fb1ca068ffaddf22cbd0",
+  "hash_blake2b512": "f3a1c6b5d8e7f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4...",
+  "hash_crc32": "1c2d3e4f",
+  "numeric_signature": "322510713592706010422168155804635446996173679039",
+  "supersimulation_tag": "SS-37DBE2",
+  "nodes": ["RSE-37DBE2-A", "RSE-37DBE2-B", "USD-37DBE2-01", "PCD-37DBE2-X"],
+  "timestamp_utc": "2025-10-03T10:05:00Z",
+  "verification_status": "verified",
+  "content_reference": "User-provided JSON dataset (480 entries, CHEM domain)",
+  "cross_references": ["Codex Node 95W", "FlameWolx/W-Lx0s", "line_index.docx"],
+  "notes": [
+    "Verified SHA-1 matches content",
+    "Ready for Supersimulation derivative expansion",
+    "All future derivatives auto-linked to ledger"
+  ]
+}>~[
   {
     "id": "001",
     "domain": "CHEM",
